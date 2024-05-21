@@ -1,13 +1,121 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+    --main-color: #1D1E24;
+    --second-color: #2A2C36;
+    --third-color: #3E4156;
+    --fourth-color: #262831;
+    --bg-color: #16171B;
+    --button-color: #B5D7F3;
+    --accent-color: #2B2D34;
+    --focused-color: #30323E;
+    --widget-color: #2F3245;
+    --panel-color: #23252D;
+    --current-user-color: #3D425B;
+    --green: #3BAF7B;
+    --red: #dd473d;
+    --accent-red: #EE6049;
+    --astra: #00DE91;
+    --done: #4DBE8B;
+    --progress: #EED449;
+    --zoom: 1;
+    --mobile: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+/* @media only screen and (max-width: 600px) {
+    html {
+        --mobile: flex;
+    }
+    :root {
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    html {
+        --mobile: none;
+        --zoom: 0.5;
+        zoom: var(--zoom);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    html {
+        --mobile: none;
+        --zoom: 0.65;
+        zoom: var(--zoom);
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    html {
+        --mobile: none;
+        --zoom: 0.75;
+        zoom: var(--zoom);
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    html {
+        --mobile: none;
+        --zoom: 0.9;
+        zoom: var(--zoom);
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    html {
+        --mobile: none;
+        --zoom: 1.1;
+        zoom: var(--zoom);
+    }
+} */
+
+@keyframes slide {
+	0% {transform:translateX(-100%);}
+	100% {transform:translateX(100%);}
+}
+
+@keyframes rot {
+	0% {rotate: 45deg;}
+	100% {rotate: -45deg;}
+}
+
+::-moz-selection {
+    color: #fff;
+    background: #4f526d;
+}
+  
+::selection {
+    color: #fff;
+    background: #4f526d;
+}
+
+html {
+    background-color: var(--bg-color);
+}
+
+@-moz-document url-prefix() {
+    html {
+        scrollbar-color: var(--accent-color) #22232a;
+        scrollbar-width: 'thin';
+    }
+}
+
+::-webkit-scrollbar {
+    background: #22232a;
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb { 
+    border-radius: 10px;
+    background: var(--accent-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--focused-color);
+}
+
+body {
+    font-family: "Manrope", sans-serif !important;
+    background-color: var(--bg-color) !important;
 }
