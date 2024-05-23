@@ -118,11 +118,11 @@ html {
 
 ::-webkit-scrollbar {
     background: #22232a;
-    width: 12px;
+    width: 0.75rem;
 }
 
 ::-webkit-scrollbar-thumb { 
-    border-radius: 10px;
+    border-radius: 0.625rem;
     background: var(--accent-color);
 }
 
