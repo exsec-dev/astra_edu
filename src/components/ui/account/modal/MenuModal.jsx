@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Box, Menu, MenuItem, Typography } from '@mui/material';
 import { useQueryClient } from 'react-query';
 import SettingsIcon from '../../icons/SettingsIcon';

@@ -40,7 +40,7 @@ export default function Footer() {
                 <Typography {...typoStyle}>© 2024  Прожирко Екатерина</Typography>
             </Box>
             <Box display='flex' gap='1rem' alignItems='center' flexDirection='row' height='1.125rem'>
-                <Link href='https://github.com/exsecantb' target="_blank" rel="noopener" {...typoStyle} sx={linkStyle}>Файлы проекта</Link>
+                <Link href='https://github.com/exsecantb/astra_edu' target="_blank" rel="noopener" {...typoStyle} sx={linkStyle}>Файлы проекта</Link>
                 <Typography {...typoStyle} sx={{ fontSize: '1.375rem', color: '#ffffff40', fontWeight: '100' }}>|</Typography>
                 <Link href='https://t.me/exsec2' target="_blank" rel="noopener" {...typoStyle} sx={linkStyle}>Контакты</Link>
                 <Typography {...typoStyle} sx={{ fontSize: '1.375rem', color: '#ffffff40', fontWeight: '100' }}>|</Typography>
