@@ -16,59 +16,74 @@
     --astra: #00DE91;
     --done: #4DBE8B;
     --progress: #EED449;
-    --zoom: 1;
-    --mobile: none;
 }
 
 
-/* @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
     html {
         --mobile: flex;
+        font-size: 10px;
     }
-    :root {
-        overflow-x: hidden;
+
+    #main-container {
+        padding: 0 3%;
     }
 }
 
 @media only screen and (min-width: 600px) {
     html {
         --mobile: none;
-        --zoom: 0.5;
-        zoom: var(--zoom);
+        font-size: 10px;
+    }
+
+    #main-container {
+        padding: 0 3%;
     }
 }
 
 @media only screen and (min-width: 768px) {
     html {
         --mobile: none;
-        --zoom: 0.65;
-        zoom: var(--zoom);
+        font-size: 12px;
+    }
+
+    #main-container {
+        padding: 0 8%;
     }
 }
 
 @media only screen and (min-width: 992px) {
     html {
         --mobile: none;
-        --zoom: 0.75;
-        zoom: var(--zoom);
+        font-size: 14px;
+    }
+    
+    #main-container {
+        padding: 0 12%;
     }
 }
 
 @media only screen and (min-width: 1200px) {
     html {
         --mobile: none;
-        --zoom: 0.9;
-        zoom: var(--zoom);
+        font-size: 15px;
+    }
+
+    #main-container {
+        padding: 0 13%;
     }
 }
 
 @media only screen and (min-width: 1400px) {
     html {
         --mobile: none;
-        --zoom: 1.1;
-        zoom: var(--zoom);
+        font-size: 16px;
     }
-} */
+
+    #main-container {
+        padding: 0 15%;
+    }
+}
 
 @keyframes slide {
 	0% {transform:translateX(-100%);}

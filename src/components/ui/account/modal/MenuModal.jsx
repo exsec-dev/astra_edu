@@ -8,7 +8,7 @@ import { UserContext } from '../../../../context';
 import SettingsModal from './SettingsModal';
 
 const formStyle = {
-    padding: '10px 8px',
+    padding: '0.625rem 0.5rem',
     display: 'flex',
     flexDirection: 'column',
     color: '#fff',
@@ -16,9 +16,9 @@ const formStyle = {
 
 const menuItemStyle = {
     display: 'flex',
-    gap: '12px',
-    padding: '8px 12px',
-    borderRadius: '8px',
+    gap: '0.75rem',
+    padding: '0.5rem 0.75rem',
+    borderRadius: '0.5rem',
     transition: 'background-color .1s ease-in-out',
     '&:hover': {
         backgroundColor: 'rgba(255, 255, 255, 0.05)',
@@ -29,7 +29,6 @@ export default function MenuModal({anchorEl, anchorRight, handleClose, handleOpe
     const { setIsAuthorized, userData } = useContext(UserContext);
     const queryClient = useQueryClient();
     const [open, setOpen] = useState(false);
-    const z = getComputedStyle(document.body).getPropertyValue('--zoom');
 
     return (
         <Menu
@@ -46,13 +45,12 @@ export default function MenuModal({anchorEl, anchorRight, handleClose, handleOpe
             }}
             sx={{
                 '& .MuiPaper-root': {
-                    mt: '20px',
+                    mt: '1.25rem',
+                    ml: '1.25rem',
                     backgroundColor: 'rgba(0, 0, 0, 50%)',
                     backdropFilter: 'blur(1px)',
-                    borderRadius: '12px',
-                    width: '220px',
-                    left: 'unset !important',
-                    right: `calc(100vw / ${z} - ${anchorRight}px - 20px) !important`
+                    borderRadius: '0.75rem',
+                    width: '13.75rem',
                 },
                 '& .MuiList-root': {
                     padding: '0'
@@ -61,20 +59,20 @@ export default function MenuModal({anchorEl, anchorRight, handleClose, handleOpe
         >
             <Box sx={formStyle}>
                 <MenuItem onClick={() => setOpen(true)} sx={menuItemStyle}>
-                    <SettingsIcon sx={{ opacity: '0.5' }}/>
-                    <Typography fontWeight={600} fontSize='15px' letterSpacing='0.03rem' sx={{ opacity: '0.5' }}>
+                    <SettingsIcon sx={{ opacity: '0.5', width: '1.25rem' }}/>
+                    <Typography fontWeight={600} fontSize='0.94rem' letterSpacing='0.03rem' sx={{ opacity: '0.5' }}>
                         Настройки
                     </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleOpenAchievement} sx={menuItemStyle}>
-                    <StarIcon sx={{ opacity: '0.5' }}/>
-                    <Typography fontWeight={600} fontSize='15px' letterSpacing='0.03rem' sx={{ opacity: '0.5' }}>
+                    <StarIcon sx={{ opacity: '0.5', width: '1.25rem' }}/>
+                    <Typography fontWeight={600} fontSize='0.94rem' letterSpacing='0.03rem' sx={{ opacity: '0.5' }}>
                         Достижения
                     </Typography>
                 </MenuItem>
                 <MenuItem onClick={() => { handleClose(); setIsAuthorized(false); localStorage.removeItem('token'); queryClient.removeQueries();  window.location.replace('/');}} sx={menuItemStyle}>
-                    <LeaveIcon sx={{ fill: '#EE6049' }}/>
-                    <Typography fontWeight={700} fontSize='15px' letterSpacing='0.03rem' color='#EE6049'>
+                    <LeaveIcon sx={{ fill: '#EE6049', width: '1.25rem' }}/>
+                    <Typography fontWeight={700} fontSize='0.94rem' letterSpacing='0.03rem' color='#EE6049'>
                         Выйти
                     </Typography>
                 </MenuItem>

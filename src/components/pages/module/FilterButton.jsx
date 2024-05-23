@@ -6,11 +6,11 @@ const styleClicked = {
     backgroundColor: 'var(--button-color) !important',
     outline: '1.5px var(--button-color) solid !important',
     borderRadius: '100px',
-    padding: '10px 25px',
-    height: '38px',
+    padding: '0.625rem 1.5rem',
+    height: '2.375rem',
     textTransform: 'none',
     fontWeight: '500',
-    fontSize: '13px',
+    fontSize: '0.813rem',
 };
 
 const styleNotClicked = {
@@ -18,11 +18,11 @@ const styleNotClicked = {
     color: 'var(--button-color) !important',
     opacity: '0.5',
     borderRadius: '100px',
-    padding: '10px 25px',
-    height: '38px',
+    padding: '0.625rem 1.5rem',
+    height: '2.375rem',
     textTransform: 'none',
     fontWeight: '500',
-    fontSize: '13px',
+    fontSize: '0.813rem',
     '&:hover': {
         backgroundColor: 'var(--button-color) !important',
         color: 'var(--bg-color) !important',

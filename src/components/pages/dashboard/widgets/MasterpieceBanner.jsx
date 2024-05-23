@@ -14,34 +14,34 @@ export default function MasterpieceBanner({ value }) {
 
     return (
         <Widget
-            padding='18px 50px 15px' gap='50px'
+            padding='1.125rem 3.125rem 1rem' gap='3rem'
             sx={{
                 justifyContent: 'flex-start',
                 flexDirection: 'row',
-                width: '100%', minWidth: '520px',
+                width: '100%', minWidth: '31.5rem',
             }}
         >
-            <Box display='flex' flexDirection='column' gap='4px' width='100%'>
-                <Typography fontWeight={800} fontSize='25px'>Мастерство Котобота</Typography>
-                <Typography fontWeight={400} fontSize='14px' sx={{opacity: '0.5', letterSpacing: '0.03rem' }}>
+            <Box display='flex' flexDirection='column' gap='0.25rem' width='100%'>
+                <Typography fontWeight={800} fontSize='1.5rem'>Мастерство Котобота</Typography>
+                <Typography fontWeight={400} fontSize='0.875rem' sx={{ opacity: '0.5' }}>
                     {label}
                 </Typography>
                 <Box width='100%' display='flex' justifyContent='space-between' alignItems='center'>
                     <Box width='100%' display='flex' justifyContent='space-between' alignItems='center' position='relative'>
-                        <Box height='9px' borderRadius='100px' bgcolor='var(--widget-color)' width='100%'/>
+                        <Box height='0.56rem' borderRadius='6.25rem' bgcolor='var(--widget-color)' width='100%'/>
                         <Box
-                            height='9px' width={percent + '%'} left='0'
-                            borderRadius='100px' bgcolor='var(--done)' top='0'
+                            height='0.56rem' width={percent + '%'} left='0'
+                            borderRadius='6.25rem' bgcolor='var(--done)' top='0'
                             position='absolute' sx={{ transition: 'width ease-in-out 1s' }}
                         />
                     </Box>
-                    <Box ml='20px' display='flex' justifyContent='space-between' alignItems='center' sx={{ textWrap: 'nowrap' }}>
-                        <Typography fontWeight={700} fontSize='20px' mb='3px'>{percent}</Typography>
-                        <Typography fontWeight={700} fontSize='16px' sx={{opacity: '0.5'}}>/100</Typography>
+                    <Box ml='1.25rem' display='flex' justifyContent='space-between' alignItems='center' sx={{ textWrap: 'nowrap' }}>
+                        <Typography fontWeight={700} fontSize='1.25rem' mb='0.19rem'>{percent}</Typography>
+                        <Typography fontWeight={700} fontSize='1rem' sx={{opacity: '0.5'}}>/100</Typography>
                     </Box>
                 </Box>
             </Box>
-            <img src={like} alt='Котобот' width={86} height={90}/>
+            <img src={like} alt='Котобот' style={{width: '5.375rem', height: '5.625rem'}}/>
         </Widget>
     );
 }

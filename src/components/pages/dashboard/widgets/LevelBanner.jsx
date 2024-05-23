@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { PieChart } from '@mui/x-charts';
 import { Box, Typography } from '@mui/material';
 import Widget from '../../../ui/containers/Widget';
@@ -6,20 +6,30 @@ import sparks from '../../../../icons/badges/sparks.webp';
 
 export default function LevelBanner({ level, points, levelPoints }) {
     const [percent, setPercent] = useState(0);
+    const [remValue, setRemValue] = useState(16);
 
     useEffect(() => {
         setPercent((points / levelPoints) || 0);
-    }, [points, levelPoints])
+    }, [points, levelPoints]);
+
+    useLayoutEffect(() => {
+        const getRemInPx = () => {    
+            setRemValue(parseFloat(getComputedStyle(document.documentElement).fontSize));
+        };
+        window.addEventListener('resize', getRemInPx);
+        getRemInPx();
+        return () => window.removeEventListener('resize', getRemInPx);
+    }, []);
 
     return (
         <Widget
-            padding='9px 30px 9px 25px' gap='15px'
+            padding='0.56rem 1.875rem 0.56rem 1.56rem' gap='0.94rem'
             sx={{
                 justifyContent: 'center',
                 flexDirection: 'row',
             }}
         >
-            <Box display='flex' flexDirection='column' gap='20px' width='100%' position='relative'>
+            <Box display='flex' flexDirection='column' gap='20px' width='100%' position='relative' sx={{ transform: `scale(${remValue / 16})` }}>
                 <Box
                     width='85px' height='85px'
                     bgcolor='var(--widget-color)' borderRadius='50%'
@@ -49,11 +59,11 @@ export default function LevelBanner({ level, points, levelPoints }) {
                     position='absolute' sx={{top: '18px', left: '33px',}}
                 >{level}</Typography>
             </Box>
-            <Box display='flex' flexDirection='column' gap='2px' alignItems='center'>
-                <img src={sparks} alt='Искры' width={50} height={50}/>
+            <Box display='flex' flexDirection='column' gap='0.125rem' alignItems='center'>
+                <img src={sparks} alt='Искры' style={{width: '3.125rem', height: '3.125rem'}}/>
                 <Box display='flex' flexDirection='row' alignItems='flex-end'>
-                    <Typography fontWeight={800} fontSize='26px'>{points}</Typography>
-                    <Typography fontWeight={800} fontSize='18px' sx={{ opacity: '0.5', mb: '3px' }}>/{levelPoints}</Typography>
+                    <Typography fontWeight={800} fontSize='1.625rem'>{points}</Typography>
+                    <Typography fontWeight={800} fontSize='1.125rem' sx={{ opacity: '0.5', mb: '0.188rem' }}>/{levelPoints}</Typography>
                 </Box>
             </Box>
         </Widget>

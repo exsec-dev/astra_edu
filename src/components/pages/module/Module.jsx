@@ -105,42 +105,42 @@ export default function Module({ id, status, isAuthorized }) {
             to={id === 0 ? "/module?name=Введение" : (id === 1 ? "/module?name=Командная%20строка" : null)}
             sx={{
                 color: '#fff', textDecoration: 'none', pointerEvents: id > 1 || status === 0 ? 'none' : 'auto',
-                minWidth: '305px', maxWidth: '400px', minHeight: '330px', flex: '1', position: 'relative',
-                flexDirection: 'column', borderRadius: '25px', display: 'flex', visibility: id !== 8 ? 'initial' : 'hidden',
+                minWidth: '19rem', maxWidth: '25rem', minHeight: '20.625rem', flex: '1', position: 'relative',
+                flexDirection: 'column', borderRadius: '1.5rem', display: 'flex', visibility: id !== 8 ? 'initial' : 'hidden',
                 background: 'linear-gradient(180deg, rgba(46, 48, 67, 0) 0%, rgba(181, 215, 243, 0.2) 200%)',
                 backgroundColor: '#2F3245', border: 'solid #ffffff15 1px',
             }}
         >
-            <Box sx={{ display: 'flex', borderRadius: '25px 25px 0 0', justifyContent: 'space-around', backgroundColor: moduleMap[id].color }}>
-                <img src={moduleMap[id].img} height='210px' alt='Module'/>
+            <Box sx={{ display: 'flex', borderRadius: '1.5rem 1.5rem 0 0', justifyContent: 'space-around', backgroundColor: moduleMap[id].color }}>
+                <img src={moduleMap[id].img} style={{height: '13.125rem'}} alt='Module'/>
             </Box>
-            <Box sx={{ display: 'flex', gap: '8px', padding: '15px 20px 25px', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <Box sx={{ display: 'flex', gap: '15px', paddingTop: '5px', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-                    <Typography fontSize='19px' fontWeight={800} lineHeight='25px' sx={{ textWrap: 'nowrap' }}>{moduleMap[id].title}</Typography>
-                    <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: '10px', flexDirection: 'row', justifyContent: 'center' }}>
-                        <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: '4px', flexDirection: 'row', justifyContent: 'center' }}>
-                            <AccessTimeRounded sx={{ opacity: '0.5', width: '17px', height: '17px' }}/>
-                            <Typography fontSize='13px' fontWeight='450' sx={{ opacity: '0.5', textWrap: 'nowrap' }}>
+            <Box sx={{ display: 'flex', gap: '0.5rem', padding: '0.938rem 1.25rem 1.563rem', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                <Box sx={{ display: 'flex', gap: '0.938rem', paddingTop: '0.3rem', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
+                    <Typography fontSize='1.18rem' fontWeight={800} lineHeight='1.5rem' sx={{ textWrap: 'nowrap' }}>{moduleMap[id].title}</Typography>
+                    <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: '0.625rem', flexDirection: 'row', justifyContent: 'center' }}>
+                        <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', flexDirection: 'row', justifyContent: 'center' }}>
+                            <AccessTimeRounded sx={{ opacity: '0.5', width: '1rem', height: '1rem' }}/>
+                            <Typography fontSize='0.8rem' fontWeight='450' sx={{ opacity: '0.5', textWrap: 'nowrap' }}>
                                 {moduleMap[id].time}
                             </Typography>
                         </Box>
-                        <Box sx={{ display: isAuthorized ? 'block' : 'none', minWidth: '11px', minHeight: '11px', borderRadius: '50%', backgroundColor: statusMap[status]}}/>
+                        <Box sx={{ display: isAuthorized ? 'block' : 'none', minWidth: '0.7rem', minHeight: '0.7rem', borderRadius: '50%', backgroundColor: statusMap[status]}}/>
                     </Box>
                 </Box>
-                <div style={{ display: 'flex', height: '1.5px', width: '100%', opacity: '0.1', backgroundColor: '#fff', borderRadius: '1px' }}/>
-                <Typography width='100%' fontSize='10.5px' fontWeight={200} sx={{ opacity: '0.5' }} letterSpacing='0.5px'>{moduleMap[id].text}</Typography>
+                <div style={{ display: 'flex', height: '0.1rem', width: '100%', opacity: '0.1', backgroundColor: '#fff', borderRadius: '1px' }}/>
+                <Typography width='100%' fontSize='0.656rem' fontWeight={200} sx={{ opacity: '0.5' }} letterSpacing='0.03rem'>{moduleMap[id].text}</Typography>
             </Box>
             {
                 id > 1 &&
                 <Box onMouseOver={() => setOpen(true)} onMouseOut={() => setOpen(false)}
                     sx={{
-                        width: open ? '140px' : '40px', height: '40px', borderRadius: '50px', display: 'flex', alignItems: 'center', transition: 'background-color .2s linear, width .25s linear',
-                        bgcolor: 'rgb(255 255 255 / 17%)', position: 'absolute', top: '10px', right: '10px', justifyContent: 'center', overflow: 'hidden',
-                        pointerEvents: 'all', color: '#ffffffc2', '&:hover': { bgcolor: 'rgb(255 255 255 / 25%)' }, padding: '0 10px', backdropFilter: 'blur(5px)',
+                        width: open ? '8.75rem' : '2.5rem', height: '2.5rem', borderRadius: '3.125rem', display: 'flex', alignItems: 'center', transition: 'background-color .2s linear, width .25s linear',
+                        bgcolor: 'rgb(255 255 255 / 17%)', position: 'absolute', top: '0.625rem', right: '0.625rem', justifyContent: 'center', overflow: 'hidden',
+                        pointerEvents: 'all', color: '#ffffffc2', '&:hover': { bgcolor: 'rgb(255 255 255 / 25%)' }, padding: '0 0.625rem', backdropFilter: 'blur(5px)',
                     }}
                 >
                     <LockClockRounded/>
-                    {open && <Typography fontSize='12.5px' fontWeight={500} sx={{ textWrap: 'nowrap', mx: '5px' }}>В разработке</Typography>}
+                    {open && <Typography fontSize='0.78rem' fontWeight={500} sx={{ textWrap: 'nowrap', mx: '0.3rem' }}>В разработке</Typography>}
                 </Box>
             }
         </MuiLink>

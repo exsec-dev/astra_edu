@@ -6,12 +6,12 @@ import AccountPanel from './AccountPanel';
 export default function UserPanel({ userData, isLoading }) {
     return (
         isLoading || !userData ?
-            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '15px' }}>
-                <Skeleton variant="rounded" width={70} height={41} sx={{ borderRadius: '100px', bgcolor: 'var(--accent-color)' }}/>
-                <Skeleton variant="rounded" width={220} height={41} sx={{ borderRadius: '100px', bgcolor: 'var(--accent-color)' }}/>
+            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.94rem' }}>
+                <Skeleton variant="rounded" sx={{ borderRadius: '100px', bgcolor: 'var(--accent-color)', width: '4.375rem', height: '2.563rem' }}/>
+                <Skeleton variant="rounded" sx={{ borderRadius: '100px', bgcolor: 'var(--accent-color)', width: '13.75rem', height: '2.563rem' }}/>
             </Box>
         :
-            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '15px' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.94rem' }}>
                 <CoinCounter coins={userData?.coins || 0}/>
                 <AccountPanel userData={userData}/>
             </Box>

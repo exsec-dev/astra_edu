@@ -6,10 +6,10 @@ export default function PageText({ value }) {
     <Typography
         sx={{
             fontWeight: '475',
-            fontSize: '16px',
+            fontSize: '1rem',
             color: '#f2f2f2e6',
             fontFamily: '"Manrope", sans-serif !important',
-            lineHeight: '24px'
+            lineHeight: '1.5rem'
         }}>
         {value}
     </Typography>

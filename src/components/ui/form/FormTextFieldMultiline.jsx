@@ -13,27 +13,27 @@ export const FormTextFieldMultiline = ({ name, label, onChange, disabled=false }
         sx: {
             pointerEvents: disabled ? 'none' : 'all',
             width: '100%',
-            mt: '1px',
+            mt: '0.06rem',
             '&:hover': {
-                borderWidth: "2px !important",
+                borderWidth: "0.125rem !important",
             },
             '& .MuiInputBase-input': {
                 fontWeight: '500 !important',
             },
             '& .MuiInputBase-root': {
-                borderRadius: "12px",
+                borderRadius: "0.75rem",
                 backgroundColor: "transparent",
-                mr: '1px',
+                mr: '0.06rem',
                 color: "#ffffff75",
                 '& .MuiInputBase-input': {
-                    fontSize: '14px',
+                    fontSize: '0.875rem',
                     fontWeight: '400'
                 }
             },
             '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                    border: "2px #ffffff15 solid",
-                    borderRadius: "11px",
+                    border: "0.125rem #ffffff15 solid",
+                    borderRadius: "0.688rem",
                 },
                 '&:hover fieldset': {
                     borderColor: "#ffffff15",
@@ -44,7 +44,7 @@ export const FormTextFieldMultiline = ({ name, label, onChange, disabled=false }
             },
             '& .MuiFormHelperText-root': {
                 fontWeight: '400',
-                marginLeft: "10px"
+                marginLeft: "0.625rem"
             },
         }
     };
@@ -64,7 +64,7 @@ export const FormTextFieldMultiline = ({ name, label, onChange, disabled=false }
 
     return (
         <Box>
-            <Typography sx={{ color: "rgba(255, 255, 255, 50%)", fontSize: "14px", fontFamily: 'inherit', fontWeight: "550" }}>{label}</Typography>
+            <Typography sx={{ color: "rgba(255, 255, 255, 50%)", fontSize: "0.875rem", fontFamily: 'inherit', fontWeight: "550" }}>{label}</Typography>
             <TextField
                 size="small"
                 {...config}

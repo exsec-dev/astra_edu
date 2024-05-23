@@ -5,12 +5,12 @@ const style = {
     color: 'var(--main-color) !important',
     backgroundColor: 'var(--button-color) !important',
     borderRadius: '100px',
-    padding: '10px 40px',
-    height: '40px',
+    padding: '0 2.5rem',
+    height: '2.5rem',
     textTransform: 'none',
     fontFamily: '"Manrope", sans-serif !important',
     fontWeight: '650',
-    fontSize: '15px',
+    fontSize: '0.938rem',
 };
 
 export const FilledButton = ({ label, handleClick, icon, disabled=false, ...otherProps }) => {

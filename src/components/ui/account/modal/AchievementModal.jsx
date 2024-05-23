@@ -9,13 +9,13 @@ import { achievementsData } from '../../../../utlis/AchievementsData';
 
 const formStyle = {
     backgroundColor: 'var(--main-color)',
-    padding: '20px 30px 35px',
+    padding: '1.25rem 1.875rem 2.2rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     color: '#fff',
-    width: '750px',
-    borderRadius: '20px',
+    width: '46.875rem',
+    borderRadius: '1.25rem',
     border: '1px solid rgba(255, 255, 255, 5%)',
 };
 
@@ -48,7 +48,7 @@ export default function AchievementModal({open, favorite, achievements, handleCl
                 '& .MuiPaper-root': {
                     backgroundColor: 'transparent',
                     overflow: 'visible',
-                    maxWidth: '750px',
+                    maxWidth: '46.875rem',
                 },
                 '& .MuiDialog-container': {
                     overflow: 'auto',
@@ -60,11 +60,11 @@ export default function AchievementModal({open, favorite, achievements, handleCl
                     ],
                     '&::-webkit-scrollbar': {
                         background: 'var(--main-color)',
-                        borderRadius: '10px',
-                        width: '10px',
+                        borderRadius: '0.625rem',
+                        width: '0.625rem',
                     },
                     '&::-webkit-scrollbar-thumb': { 
-                        borderRadius: '10px',
+                        borderRadius: '0.625rem',
                         background: 'var(--accent-color)',
                     },
                     '&::-webkit-scrollbar-thumb:hover': {
@@ -76,22 +76,22 @@ export default function AchievementModal({open, favorite, achievements, handleCl
             <Box sx={formStyle}>
                 <DialogContent sx={{ padding: '0' }}>
                     <Box sx={{
-                        gap: '25px',
+                        gap: '1.56rem',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'flex-start',
                         overflow: 'hidden',
                     }}>
                         <Box width='100%' display='flex' justifyContent='space-between' position='relative'>
-                            <Typography fontWeight={800} fontSize='22px'>Достижения</Typography>
+                            <Typography fontWeight={800} fontSize='1.375rem'>Достижения</Typography>
                             <ClearRoundedIcon
                                 onClick={handleClose}
                                 sx={{
                                     fill: '#ffffff50',
-                                    width: '30px',
-                                    height: '30px',
+                                    width: '1.875rem',
+                                    height: '1.875rem',
                                     position: 'absolute',
-                                    right: '-6px',
+                                    right: '-0.375rem',
                                     cursor: 'pointer',
                                     '&:hover': {
                                         fill: '#ffffffbb',
@@ -100,7 +100,7 @@ export default function AchievementModal({open, favorite, achievements, handleCl
                             />
                         </Box>
                         <Box sx={{
-                            gap: '20px',
+                            gap: '1.25rem',
                             display: 'inline-grid',
                             gridTemplateColumns: 'auto auto',
                         }}>
@@ -122,7 +122,7 @@ export default function AchievementModal({open, favorite, achievements, handleCl
                     </Box>
                 </DialogContent>
             </Box>
-            <Box minHeight='32px'/>
+            <Box minHeight='2rem'/>
         </Dialog>
     );
 }

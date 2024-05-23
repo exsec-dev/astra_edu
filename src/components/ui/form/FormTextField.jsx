@@ -14,7 +14,7 @@ export const FormTextField = ({ name, label, onChange, disabled=false, isEdit=fa
         helperText: "",
         sx: {
             pointerEvents: disabled ? 'none' : 'all',
-            width: '400px',
+            width: '25rem',
             '& input::-ms-reveal': {
                 display: 'none',
             },
@@ -22,20 +22,20 @@ export const FormTextField = ({ name, label, onChange, disabled=false, isEdit=fa
                 borderWidth: "1.5px !important",
             },
             '& .MuiInputBase-root': {
-                borderRadius: "12px",
+                borderRadius: "0.75rem",
                 backgroundColor: "var(--panel-color)",
                 color: "#ffffff75",
-                height: '40px',
+                height: '2.5rem',
                 '& .MuiInputBase-input': {
-                    padding: '8.5px 20px',
-                    fontSize: '14px',
+                    padding: '0.5rem 1.25rem',
+                    fontSize: '0.875rem',
                     fontWeight: '400'
                 }
             },
             '& .MuiOutlinedInput-root': {
                 '& fieldset': {
                     border: "1.5px #ffffff15 solid",
-                    borderRadius: "11px",
+                    borderRadius: "0.688rem",
                 },
                 '&:hover fieldset': {
                     borderColor: "#ffffff15",
@@ -46,7 +46,7 @@ export const FormTextField = ({ name, label, onChange, disabled=false, isEdit=fa
             },
             '& .MuiFormHelperText-root': {
                 fontWeight: '400',
-                marginLeft: "10px"
+                marginLeft: "0.625rem"
             },
             ...otherProps
         }
@@ -73,10 +73,10 @@ export const FormTextField = ({ name, label, onChange, disabled=false, isEdit=fa
                 sx={{
                     color: '#EFEFF150',
                     pointerEvents: 'all',
-                    marginRight: '-5px !important',
+                    marginRight: '-0.3rem !important',
                 }}
             >
-                <ContentCopyRounded sx={{fontSize: '20px'}}/>
+                <ContentCopyRounded sx={{fontSize: '1.25rem'}}/>
             </IconButton>
         ),
         "login": isEdit ? (
@@ -84,7 +84,7 @@ export const FormTextField = ({ name, label, onChange, disabled=false, isEdit=fa
                 edge="end"
                 sx={{
                     color: '#EFEFF150',
-                    marginRight: '0px !important',
+                    marginRight: '0 !important',
                     cursor: 'auto',
                     '& .MuiTouchRipple-root': {
                         display: 'none !important'
@@ -94,7 +94,7 @@ export const FormTextField = ({ name, label, onChange, disabled=false, isEdit=fa
                     }
                 }}
             >
-                <EditRounded sx={{fontSize: '20px'}}/>
+                <EditRounded sx={{fontSize: '1.25rem'}}/>
             </IconButton>
         ) : null,
         "password": (
@@ -104,7 +104,7 @@ export const FormTextField = ({ name, label, onChange, disabled=false, isEdit=fa
                 edge="end"
                 sx={{
                     color: '#EFEFF150',
-                    marginRight: '0px !important',
+                    marginRight: '0 !important',
                     '& .MuiTouchRipple-root': {
                         display: 'none !important'
                     },
@@ -113,14 +113,14 @@ export const FormTextField = ({ name, label, onChange, disabled=false, isEdit=fa
                     }
                 }}
             >
-                {showPassword ? <VisibilityOutlined sx={{fontSize: '20px'}}/> : <VisibilityOffOutlined sx={{fontSize: '20px'}}/>}
+                {showPassword ? <VisibilityOutlined sx={{fontSize: '1.25rem'}}/> : <VisibilityOffOutlined sx={{fontSize: '1.25rem'}}/>}
             </IconButton>
         ),
     }
 
     return (
         <Box>
-            <Typography sx={{ color: "rgba(255, 255, 255, 50%)", fontSize: "14px", fontFamily: 'inherit', fontWeight: "550", marginLeft: "8px", marginBottom: "2px" }}>{label}</Typography>
+            <Typography sx={{ color: "rgba(255, 255, 255, 50%)", fontSize: "0.875rem", fontFamily: 'inherit', fontWeight: "550", marginLeft: "0.5rem", marginBottom: "0.125rem" }}>{label}</Typography>
             <TextField
                 size="small"
                 {...config}

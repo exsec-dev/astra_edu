@@ -20,7 +20,7 @@ const Module = ({ id, isBonus, status, points, title, moduleName }) => {
   }
   
   return (
-    <Button disabled={status === 0} sx={{ padding: '0', color: 'rgba(255, 255, 255, 15%)', borderRadius: '15px', textTransform: 'none', cursor: status !== 0 ? 'pointer' : 'auto', }}>
+    <Button disabled={status === 0} sx={{ padding: '0', color: 'rgba(255, 255, 255, 15%)', borderRadius: '0.938rem', textTransform: 'none', cursor: status !== 0 ? 'pointer' : 'auto', }}>
       <MuiLink
         component={Link}
         to={`/module/${linkMap[moduleName]}/?id=${id}`}
@@ -28,7 +28,7 @@ const Module = ({ id, isBonus, status, points, title, moduleName }) => {
       >
         <Box
           display='flex' alignItems='center' border='1px solid rgba(255, 255, 255, 5%)' flexDirection='row'
-          padding='10px 50px 10px 30px' borderRadius='15px' justifyContent='space-between' width='100%'
+          padding='0.625rem 3.125rem 0.625rem 1.875rem' borderRadius='0.938rem' justifyContent='space-between' width='100%'
           bgcolor={color} letterSpacing='0.03rem'
           sx={{
             position: 'relative', background: isBonus ? "#2c2154" : null, overflow: 'hidden',
@@ -43,16 +43,16 @@ const Module = ({ id, isBonus, status, points, title, moduleName }) => {
             }
           }}
         >
-          <Box display='flex' flexDirection='row' gap='20px' alignItems='center' zIndex={2}>
-            <Box minWidth='12px' minHeight='12px' bgcolor={statusMap[status]} borderRadius='50%'/>
-            <Box display='flex' flexDirection='row' gap='10px' alignItems='center' zIndex={2}>
-              <Typography fontSize='16px' fontWeight={600} sx={{ opacity: status === 2 ? '0.5' : '1'}}>{title}</Typography>
-              <EastRounded sx={{ fontSize: '24px', visibility: status === 1 ? 'visible' : 'hidden' }}/>
+          <Box display='flex' flexDirection='row' gap='1.25rem' alignItems='center' zIndex={2}>
+            <Box minWidth='0.75rem' minHeight='0.75rem' bgcolor={statusMap[status]} borderRadius='50%'/>
+            <Box display='flex' flexDirection='row' gap='0.625rem' alignItems='center' zIndex={2}>
+              <Typography fontSize='1rem' fontWeight={600} sx={{ opacity: status === 2 ? '0.5' : '1'}}>{title}</Typography>
+              <EastRounded sx={{ fontSize: '1.5rem', visibility: status === 1 ? 'visible' : 'hidden' }}/>
             </Box>
           </Box>
           <Typography
             visibility={["Знакомство", "Обучение на платформе"].includes(title) ? 'hidden' : 'visible'}
-            fontSize='24px' fontWeight={800}
+            fontSize='1.5rem' fontWeight={800}
             sx={{ opacity: status === 2 ? '0.5' : '1', zIndex: 2}}
           >
             {points || 0}/5
@@ -77,24 +77,24 @@ export default function ChaptersPage() {
   };
 
   return (
-    <PageWrapper padding='0'>
+    <PageWrapper padding='0 !important'>
       { isLoading ?
           <LoadingPage />
         :
           <Box sx={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
-            <Box width='250px' height='100%' display='flex' alignItems='center' justifyContent='flex-end' pr='50px'>
+            <Box width='15.62rem' height='100%' display='flex' alignItems='center' justifyContent='flex-end' pr='3.125rem'>
               <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={!moduleMap?.[moduleDataIndex - 1]?.title}>
                 <MuiLink
                   component={Link}
                   to={"/module?name=" + moduleMap?.[moduleDataIndex - 1]?.title}
-                  sx={{ color: '#fff', maxHeight: '30px' }}
+                  sx={{ color: '#fff', maxHeight: '1.875rem' }}
                 >
-                  <ArrowBackIosRounded sx={{ fontSize: '30px', transition: 'opacity linear .1s', fill: '#fff', opacity: moduleMap?.[moduleDataIndex - 1]?.title ? '0.25' : '0.08', '&:hover': { opacity: '0.5' }}}/>
+                  <ArrowBackIosRounded sx={{ fontSize: '1.875rem', transition: 'opacity linear .1s', fill: '#fff', opacity: moduleMap?.[moduleDataIndex - 1]?.title ? '0.25' : '0.08', '&:hover': { opacity: '0.5' }}}/>
                 </MuiLink>
               </IconButton>
             </Box>
-            <Box width='100%' display='flex' flexDirection='column' gap='30px' py='5px'>
-              <Box width='100%' display='flex' flexDirection='row' gap='20px'>
+            <Box width='100%' display='flex' flexDirection='column' gap='1.875rem' py='0.3rem'>
+              <Box width='100%' display='flex' flexDirection='row' gap='1.25rem'>
                 <MuiLink
                   component={Link}
                   to="/"
@@ -102,18 +102,18 @@ export default function ChaptersPage() {
                 >
                   <HomeRounded
                     sx={{
-                      fontSize: '36px', transition: 'opacity linear .1s',
-                      opacity: '0.5', cursor: 'pointer', mt: '6px',
+                      fontSize: '2.25rem', transition: 'opacity linear .1s',
+                      opacity: '0.5', cursor: 'pointer', mt: '0.375rem',
                       '&:hover': { opacity: '0.75' }
                     }}
                   />
                 </MuiLink>
-                <Box width='100%' display='flex' flexDirection='column' gap='10px' alignItems='flex-start'>
-                  <Typography fontSize='32px' fontWeight={800}>{moduleData?.title}</Typography>
-                  <Typography fontSize='16px' fontWeight={400} color='#DDDDDD'>{moduleData?.description}</Typography>
+                <Box width='100%' display='flex' flexDirection='column' gap='0.625rem' alignItems='flex-start'>
+                  <Typography fontSize='2rem' fontWeight={800}>{moduleData?.title}</Typography>
+                  <Typography fontSize='1rem' fontWeight={400} color='#DDDDDD'>{moduleData?.description}</Typography>
                 </Box>
               </Box>
-              <Box width='100%' display='flex' flexDirection='column' gap='10px' padding='30px 40px' bgcolor='var(--main-color)' borderRadius='25px'>
+              <Box width='100%' display='flex' flexDirection='column' gap='0.625rem' padding='1.875rem 2.5rem' bgcolor='var(--main-color)' borderRadius='1.56rem'>
                 {
                   moduleData?.chapters?.map((el, i) => {
                     const curr = map?.[name]?.[i];
@@ -132,14 +132,14 @@ export default function ChaptersPage() {
                 }
               </Box>
             </Box>
-            <Box width='250px' height='100%' display='flex' alignItems='center' pl='50px'>
+            <Box width='15.62rem' height='100%' display='flex' alignItems='center' pl='3.125rem'>
               <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={moduleDataIndex > 0} /*ограничение по модулям*/ >
                 <MuiLink
                   component={Link}
                   to={"/module?name=" + moduleMap?.[moduleDataIndex + 1]?.title}
-                  sx={{ color: '#fff', maxHeight: '30px' }}
+                  sx={{ color: '#fff', maxHeight: '1.875rem' }}
                 >
-                  <ArrowForwardIosRounded sx={{ fontSize: '30px', transition: 'opacity linear .1s', fill: '#fff', opacity: moduleDataIndex > 0 ? '0.08' : '0.25', '&:hover': { opacity: '0.5' }}}/>
+                  <ArrowForwardIosRounded sx={{ fontSize: '1.875rem', transition: 'opacity linear .1s', fill: '#fff', opacity: moduleDataIndex > 0 ? '0.08' : '0.25', '&:hover': { opacity: '0.5' }}}/>
                 </MuiLink>
               </IconButton>
             </Box>

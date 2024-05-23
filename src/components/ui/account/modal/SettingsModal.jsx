@@ -16,12 +16,12 @@ import { EditRounded } from '@mui/icons-material';
 
 const formStyle = {
     backgroundColor: 'var(--main-color)',
-    padding: '20px 30px 35px',
+    padding: '1.25rem 1.875rem 2.2rem',
     display: 'flex',
     flexDirection: 'column',
     color: '#fff',
-    gap: '30px',
-    borderRadius: '20px',
+    gap: '1.875rem',
+    borderRadius: '1.25rem',
     border: '1px solid rgba(255, 255, 255, 5%)',
 };
 
@@ -135,15 +135,15 @@ export default function SettingsModal({open, userData, handleClose}) {
         >
             <Box sx={formStyle}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', }}>
-                    <Typography fontWeight={700} fontSize='22px'>Настройки</Typography>
+                    <Typography fontWeight={700} fontSize='1.375rem'>Настройки</Typography>
                     <ClearRoundedIcon
                         onClick={handleClose}
                         sx={{
                             fill: '#ffffff50',
-                            width: '30px',
-                            height: '30px',
+                            width: '1.875rem',
+                            height: '1.875rem',
                             position: 'absolute',
-                            right: '25px',
+                            right: '1.56rem',
                             cursor: 'pointer',
                             '&:hover': {
                                 fill: '#ffffffbb',
@@ -152,19 +152,19 @@ export default function SettingsModal({open, userData, handleClose}) {
                     />
                 </Box>
                 <Box sx={{
-                    gap: '35px',
+                    gap: '2.2rem',
                     display: 'flex',
                     flexDirection: 'row',
-                    pl: '15px',
+                    pl: '0.94rem',
                 }}>
                     <Box sx={{
-                        gap: '7px',
+                        gap: '0.44rem',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
                     }}>
-                        <Box position='relative' borderRadius='50%' width={90} height={90}>
-                            <img src={convertToImage(userData?.avatar)} alt='Аватар' width={90} height={90} style={{ borderRadius: '50%' }}/>
+                        <Box position='relative' borderRadius='50%' sx={{ width: '5.625rem', height: '5.625rem' }}>
+                            <img src={convertToImage(userData?.avatar)} alt='Аватар' style={{ borderRadius: '50%', width: '5.625rem', height: '5.625rem' }}/>
                             <input
                                 accept="image/*"
                                 id="button-file"
@@ -180,7 +180,7 @@ export default function SettingsModal({open, userData, handleClose}) {
                                         position: 'absolute', display: 'flex',
                                         justifyContent: 'center', alignItems: 'center',
                                         transition: 'opacity linear .15s', borderRadius: '50%',
-                                        width: '90px', height: '90px',
+                                        width: '5.625rem', height: '5.625rem',
                                         cursor: 'pointer', border: '1.5px solid #fff',
                                         top: '0', opacity: '0',
                                         '&:hover': {
@@ -192,7 +192,7 @@ export default function SettingsModal({open, userData, handleClose}) {
                                 </Button>
                             </label>
                         </Box>
-                        <Typography fontWeight={600} fontSize='14px' sx={{ opacity: '0.5' }}>
+                        <Typography fontWeight={600} fontSize='0.875rem' sx={{ opacity: '0.5' }}>
                             Аватар
                         </Typography>
                     </Box>
@@ -210,36 +210,36 @@ export default function SettingsModal({open, userData, handleClose}) {
                         {({ isSubmitting, submitForm, dirty, }) => (
                             <Form>
                                 <DialogContent sx={{ padding: '0' }}>
-                                    <Box sx={{display: 'flex', flexDirection: 'column', gap: '15px'}}>
-                                        <FormTextField label="ID" name="id" disabled={true} width='115px'/>
-                                        <Box sx={{display: 'flex', flexDirection: 'row', gap: '25px'}}>
-                                            <FormTextField label="Логин" name="login" isEdit={true} width='225px'/>
-                                            <FormTextField label="Новый пароль" name="password" width='225px'/>
+                                    <Box sx={{display: 'flex', flexDirection: 'column', gap: '0.94rem'}}>
+                                        <FormTextField label="ID" name="id" disabled={true} width='7.6rem'/>
+                                        <Box sx={{display: 'flex', flexDirection: 'row', gap: '1.56rem'}}>
+                                            <FormTextField label="Логин" name="login" isEdit={true} width='14rem'/>
+                                            <FormTextField label="Новый пароль" name="password" width='14rem'/>
                                         </Box>
                                     </Box>
                                 </DialogContent>
                                 <DialogActions sx={{
                                     display: 'flex',
                                     flexDirection: 'row',
-                                    gap: '25px',
+                                    gap: '1.56rem',
                                     padding: '0',
-                                    mt: '30px'
+                                    mt: '1.875rem'
                                 }}>
                                     <FilledGreyButton 
                                         label="Сохранить изменения"
                                         handleClick={submitForm}
-                                        padding="10px 0"
-                                        height="40px"
+                                        padding="0.625rem 0"
+                                        height="2.5rem"
                                         width="50%"
                                         disabled={!dirty}
                                     />
                                     <OutlinedButton 
                                         label="Выйти из аккаунта"
                                         handleClick={() => { handleClose(); setIsAuthorized(false); localStorage.removeItem('token'); queryClient.removeQueries(); window.location.replace('/');}}
-                                        fontSize="14px"
+                                        fontSize="0.875rem"
                                         fontWeight={650}
-                                        padding="10px 0"
-                                        height="40px"
+                                        padding="0.625rem 0"
+                                        height="2.5rem"
                                         width="50%"
                                         borderWidth="1.5px"
                                         marginLeft="0 !important"

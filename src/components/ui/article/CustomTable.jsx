@@ -4,7 +4,7 @@ import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from
 export default function CustomTable({ data }) {
   return (
     <TableContainer>
-      <Table sx={{ width: '100%', my: '20px', letterSpacing: '0.03rem' }}>
+      <Table sx={{ width: '100%', my: '1.25rem', letterSpacing: '0.03rem' }}>
         <TableHead>
           <TableRow sx={{ '& th:last-child': { borderRight: 0 } }}>
             {

@@ -14,17 +14,17 @@ export default function ModuleBanner({ data, index, title, status, progress, per
 
     return (
         <Widget
-            padding='30px 50px 40px 50px'
+            padding='1.875rem 3.125rem 2.5rem 3.125rem'
             sx={{
                 justifyContent: 'space-between',
                 flexDirection: 'row', width: '100%',
             }}
         >
-            <Box display='flex' flexDirection='column' gap='20px' width='100%'>
-                <Box display='flex' flexDirection='row' gap='25px'>
-                    <Box display='flex' flexDirection='row' gap='10px' pb='2px' alignItems='center'>
-                        <Typography fontWeight={800} fontSize='25px'>Текущий модуль</Typography>
-                        <EastRounded sx={{ mt: '4px', fontSize: '35px' }}/>
+            <Box display='flex' flexDirection='column' gap='1.25rem' width='100%'>
+                <Box display='flex' flexDirection='row' gap='1.5rem' alignItems='center'>
+                    <Box display='flex' flexDirection='row' gap='0.625rem' pb='0.125rem' alignItems='center'>
+                        <Typography fontWeight={800} fontSize='1.563rem'>Текущий модуль</Typography>
+                        <EastRounded sx={{ mt: '0.25rem', fontSize: '2.19rem' }}/>
                     </Box>
                     <MuiLink
                         component={Link}
@@ -37,32 +37,32 @@ export default function ModuleBanner({ data, index, title, status, progress, per
                     >
                         <Box
                             display='flex' flexDirection='row' alignItems='center' borderRadius='100px'
-                            gap='10px' padding='7px 35px 7px 30px' bgcolor='var(--widget-color)'
+                            gap='0.625rem' padding='0.44rem 2.19rem 0.44rem 1.875rem' bgcolor='var(--widget-color)'
                             sx={{
                                 cursor: 'pointer', letterSpacing: '0.03rem',
                                 '&:hover': {bgcolor: 'var(--third-color)'},
-                                transition: 'background-color .1s linear'
+                                transition: 'background-color .1s linear', maxHeight: '2.75rem'
                             }}
                         >
-                            <Box height='9px' width='9px' borderRadius='50%' bgcolor={statusMap[status]}/>
-                            <Typography fontWeight={500} fontSize='14px'>{title}</Typography>
+                            <Box height='0.56rem' width='0.56rem' borderRadius='50%' bgcolor={statusMap[status]}/>
+                            <Typography fontWeight={500} fontSize='0.875rem'>{title}</Typography>
                         </Box>
                     </MuiLink>
                 </Box>
                 <Box position='relative' maxWidth={700}>
-                    <Box height='9px' borderRadius='100px' bgcolor='var(--widget-color)'/>
+                    <Box height='0.56rem' borderRadius='100px' bgcolor='var(--widget-color)'/>
                     <Box
-                        height='9px' width='0%' left='0'
+                        height='0.56rem' width='0%' left='0'
                         borderRadius='100px' bgcolor='var(--done)' top='0'
                         position='absolute' id="module-bar"
                     />
                 </Box>
             </Box>
-            <Box display='flex' flexDirection='row' alignItems='flex-end' ml='30px' sx={{ textWrap: 'nowrap' }}>
-                <Typography fontWeight={800} fontSize='38px'>{
+            <Box display='flex' flexDirection='row' alignItems='flex-end' ml='1.5rem' sx={{ textWrap: 'nowrap' }}>
+                <Typography fontWeight={800} fontSize='2.375rem'>{
                     title !== "Введение" ? progress : data?.filter(el => el?.status === 2)?.length * 5
                 }</Typography>
-                <Typography fontWeight={800} fontSize='26px' sx={{ opacity: '0.5', mb: '5px' }}>{
+                <Typography fontWeight={800} fontSize='1.625rem' sx={{ opacity: '0.5', mb: '0.31rem' }}>{
                     title !== "Введение" ? "/20" : "/10"
                 }</Typography>
             </Box>

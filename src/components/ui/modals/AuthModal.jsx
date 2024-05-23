@@ -15,22 +15,22 @@ import * as Yup from 'yup';
 
 const formStyle = {
     backgroundColor: 'var(--main-color)',
-    padding: '40px 10px 30px',
+    padding: '2.5rem 0.625rem 1.5rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    borderRadius: '20px',
+    borderRadius: '1.25rem',
     border: '1px solid rgba(255, 255, 255, 5%)',
 };
 
 const textLinkStyle = {
     color: '#ffffff50',
-    fontSize: '14px',
+    fontSize: '0.875rem',
     display: 'flex',
     gap: '5px',
     fontWeight: '250',
     cursor: 'pointer',
-    paddingBottom: '2px'
+    paddingBottom: '0.125rem'
 };
 
 export default function AuthModal({open, isLogin=false, handleClose}) {
@@ -114,7 +114,7 @@ export default function AuthModal({open, isLogin=false, handleClose}) {
     return (
         <Dialog open={open} onBackdropClick={handleClose} sx={{ '& .MuiPaper-root': { backgroundColor: 'transparent', }}}>
             <Box sx={formStyle}>
-                <IconButton sx={{position: 'absolute', right: '10px', top: '10px', color: '#ffffff50'}} onClick={handleClose}>
+                <IconButton sx={{position: 'absolute', right: '0.625rem', top: '0.625rem', color: '#ffffff50'}} onClick={handleClose}>
                     <ClearRoundedIcon />
                 </IconButton>
                 <Logo scale='1.1'/>
@@ -127,20 +127,20 @@ export default function AuthModal({open, isLogin=false, handleClose}) {
                 >
                     {({ isSubmitting, submitForm }) => (
                         <Form>
-                            <DialogContent>
-                                <Box sx={{display: 'flex', flexDirection: 'column', gap: '15px'}}>
+                            <DialogContent sx={{ padding: '1.25rem 1.5rem'}}>
+                                <Box sx={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
                                     <FormTextField label="Логин" name="login" />
                                     <FormTextField label="Пароль" name="password" />
                                     {!isModalLogin && <FormTextField label="Повторите пароль" name="password2" />}
                                 </Box>
                             </DialogContent>
-                            <DialogActions sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px'}}>
+                            <DialogActions sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.625rem', padding: '0.5rem'}}>
                                 <FilledButton 
                                     label={isModalLogin ? "Войти" : "Создать аккаунт"}
                                     handleClick={submitForm}
-                                    fontSize="13px"
-                                    padding="10px 70px"
-                                    height="37px"
+                                    fontSize="0.8rem"
+                                    padding="0.625rem 4.375rem"
+                                    height="2.25rem"
                                 />
                                 {
                                     isModalLogin ?

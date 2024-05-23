@@ -18,22 +18,22 @@ const User = ({ isFirst, isSecond, isThird, isCurrent, isAbove, isLast, index, u
     return (<>
         {
             ((index > 5 && isAbove) || (isLast && !isCurrent)) &&
-            <Box width='100%' height='1.5px' bgcolor='var(--focused-color)' borderRadius='2px'/>
+            <Box width='100%' height='0.1rem' bgcolor='var(--focused-color)' borderRadius='2px'/>
         }
-        <Box display='flex' flexDirection='row' alignItems='center' gap='20px' position='relative' width='100%'>
-            <Typography fontWeight={700} fontSize='18px' position='absolute' left='-55px' width='40px' textAlign='end'>
+        <Box display='flex' flexDirection='row' alignItems='center' gap='1.25rem' position='relative' width='100%'>
+            <Typography fontWeight={700} fontSize='1.125rem' position='absolute' left='-3.438rem' width='2.5rem' textAlign='end'>
                 {index}
             </Typography>
             <Box
                 display='flex' flexDirection='row'
-                alignItems='center' gap='20px' width='100%'
-                justifyContent='space-between' pr='40px'
+                alignItems='center' gap='1.25rem' width='100%'
+                justifyContent='space-between' pr='2.5rem'
                 bgcolor={isCurrent ? 'var(--widget-color)' : 'var(--fourth-color)'} borderRadius='1000px'
             >
                 <Box
                     display='flex' flexDirection='row' position='relative'
-                    alignItems='center' gap='20px' height='40px'
-                    borderRadius='1000px' pl='7px' pr='25px'
+                    alignItems='center' gap='1.25rem' height='2.5rem'
+                    borderRadius='1000px' pl='0.44rem' pr='1.56rem'
                     sx={{
                         background: color,
                         '&::after': {
@@ -45,26 +45,25 @@ const User = ({ isFirst, isSecond, isThird, isCurrent, isAbove, isLast, index, u
                 >
                     <img
                         src={convertToImage(userData?.avatar)} alt='Img'
-                        width={30} height={30}
-                        style={{ borderRadius: '50%' }}
+                        style={{width: '1.875rem', height: '1.875rem', borderRadius: '50%'}}
                     />
-                    <Box display='flex' flexDirection='row' alignItems='center' gap='10px'>
-                        <Typography fontWeight={550} fontSize='14px'>{userData?.username}</Typography>
+                    <Box display='flex' flexDirection='row' alignItems='center' gap='0.625rem'>
+                        <Typography fontWeight={550} fontSize='0.875rem'>{userData?.username}</Typography>
                         <img
-                            width={20}
+                            style={{width: '1.25rem'}}
                             src={achievementsData[userData?.favorite_achievement]?.icon}
                             alt={achievementsData[userData?.favorite_achievement]?.title}
                         />
                     </Box>
                 </Box>
-                <Box display='flex' flexDirection='row' justifyContent='center' alignItems='flex-end' gap='40px'>
-                    <Typography fontWeight={400} fontSize='14px' width='120px' letterSpacing='0.03rem' textAlign='end'>
+                <Box display='flex' flexDirection='row' justifyContent='center' alignItems='flex-end' gap='2.5rem'>
+                    <Typography fontWeight={400} fontSize='0.875rem' width='7.5rem' letterSpacing='0.03rem' textAlign='end'>
                         {userData?.points}
                     </Typography>
-                    <Typography fontWeight={400} fontSize='14px' width='120px' letterSpacing='0.03rem' textAlign='end'>
+                    <Typography fontWeight={400} fontSize='0.875rem' width='7.5rem' letterSpacing='0.03rem' textAlign='end'>
                         {levelMap.findLast(el => el.points <= userData?.points)?.level}
                     </Typography>
-                    <Typography fontWeight={400} fontSize='14px' width='120px' letterSpacing='0.03rem' textAlign='end'>
+                    <Typography fontWeight={400} fontSize='0.875rem' width='7.5rem' letterSpacing='0.03rem' textAlign='end'>
                         {JSON.parse(userData?.achievements || "[]")?.length}
                     </Typography>
                 </Box>
@@ -91,32 +90,30 @@ export default function Leaderboard({ userData }) {
         }
       });
 
-    console.log(data?.data)
-
     return (
         <Widget
-            padding='30px 50px'
+            padding='1.875rem 3.125rem'
             sx={{ flexDirection: 'column', width: '100%', alignItems: 'flex-start', }}
         >
-            <Typography fontWeight={800} fontSize='25px'>Таблица лидеров</Typography>
-            <Box display='flex' flexDirection='column' alignItems='flex-end' gap='20px' width='100%'>
+            <Typography fontWeight={800} fontSize='1.563rem'>Таблица лидеров</Typography>
+            <Box display='flex' flexDirection='column' alignItems='flex-end' gap='1.25rem' width='100%'>
                 <Box
                     display='flex' flexDirection='row' justifyContent='flex-end'
-                    gap='40px' pr='40px' width='100%' letterSpacing='0.03rem'
+                    gap='2.5rem' pr='2.5rem' width='100%' letterSpacing='0.03rem'
                 >
-                    <Typography fontWeight={500} fontSize='14px' width='120px' textAlign='end' sx={{ opacity: '0.5' }}>
+                    <Typography fontWeight={500} fontSize='0.875rem' width='7.5rem' textAlign='end' sx={{ opacity: '0.5' }}>
                         Опыт
                     </Typography>
-                    <Typography fontWeight={500} fontSize='14px' width='120px' textAlign='end' sx={{ opacity: '0.5' }}>
+                    <Typography fontWeight={500} fontSize='0.875rem' width='7.5rem' textAlign='end' sx={{ opacity: '0.5' }}>
                         Уровень
                     </Typography>
-                    <Typography fontWeight={500} fontSize='14px' width='120px' textAlign='end' sx={{ opacity: '0.5' }}>
+                    <Typography fontWeight={500} fontSize='0.875rem' width='7.5rem' textAlign='end' sx={{ opacity: '0.5' }}>
                         Награды
                     </Typography>
                 </Box>
                 <Box
                     display='flex' flexDirection='column'
-                    gap='10px' pl={isLoading || isError || isFetching ? '0' : '30px'} width='100%'
+                    gap='0.625rem' pl={isLoading || isError || isFetching ? '0' : '1.875rem'} width='100%'
                 >
                     {
                         isLoading || isError || isFetching ?

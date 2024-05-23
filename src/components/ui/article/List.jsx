@@ -5,13 +5,13 @@ import { CodeSpan } from './Paragraph';
 
 export default function List({ list }) {
   return (
-    <Box display='flex' flexDirection='column' gap='10px' my='15px'>
+    <Box display='flex' flexDirection='column' gap='0.625rem' my='0.94rem'>
       {
         list?.map((el, i) => {
           return (
-            <Box display='flex' pl='15px' gap='15px' position='relative' key={i}>
-              <Typography fontSize='16px' fontWeight={300} color='#DDDDDD90' lineHeight='24px'>—</Typography>
-              <Typography fontSize='16px' fontWeight={375} color='#DDDDDD' lineHeight='24px'>
+            <Box display='flex' pl='0.94rem' gap='0.94rem' position='relative' key={i}>
+              <Typography fontSize='1rem' fontWeight={300} color='#DDDDDD90' lineHeight='1.5rem'>—</Typography>
+              <Typography fontSize='1rem' fontWeight={375} color='#DDDDDD' lineHeight='1.5rem'>
               {reactStringReplace(el, /<(.+?)>/g, (match, j) => (
                 <CodeSpan key={j + 'span'}>{match}</CodeSpan>
               ))}

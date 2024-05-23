@@ -7,13 +7,12 @@ import { UserContext } from './context';
 import { Requests } from './Requests';
 import Header from './components/Header';
 import ScrollToTop from './components/ScrollToTop';
-import { ThemeProvider, createTheme, Box, styled, Typography } from '@mui/material';
+import { ThemeProvider, createTheme, Box, styled } from '@mui/material';
 import { SnackbarProvider, MaterialDesignContent, } from 'notistack';
 import Footer from './components/Footer';
 import ModulesPage from './components/pages/module/ModulesPage';
 import ChaptersPage from './components/pages/chapters/ChaptersPage';
 import FAQPage from './components/pages/faq/FAQPage';
-import { useSnackbar } from 'notistack';
 import { AchievementSnackbar } from './components/ui/AchievementSnackbar';
 import IntroRouter from './components/pages/intro/IntroRouter';
 import { AnimatePresence } from 'framer-motion';
@@ -23,36 +22,36 @@ const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
   '&.notistack-MuiContent-success': {
     backgroundColor: 'var(--green)',
     color: '#fff',
-    height: '52px',
-    minWidth: '250px',
-    borderRadius: '12px',
+    height: '3.25rem',
+    minWidth: '15.6rem',
+    borderRadius: '0.75rem',
     border: '1px solid #ffffff25',
     fontWeight: '450',
-    fontSize: '14px',
-    padding: '0 25px',
+    fontSize: '0.875rem',
+    padding: '0 1.5rem',
     '& #notistack-snackbar': {
-      gap: '5px'
+      gap: '1rem'
     }
   },
   '&.notistack-MuiContent-error': {
     backgroundColor: 'var(--red)',
     color: '#fff',
-    height: '52px',
-    minWidth: '250px',
-    borderRadius: '12px',
+    height: '3.25rem',
+    minWidth: '15.6rem',
+    borderRadius: '0.75rem',
     border: '1px solid #ffffff25',
     fontWeight: '450',
-    fontSize: '14px',
-    padding: '0 25px',
+    fontSize: '0.875rem',
+    padding: '0 1.5rem',
     '& #notistack-snackbar': {
-      gap: '5px'
+      gap: '1rem'
     }
   },
   '&.notistack-MuiContent-default': {
     backgroundColor: 'var(--second-color)',
-    height: '80px',
-    width: '300px',
-    borderRadius: '12px',
+    height: '5rem',
+    width: '18.75rem',
+    borderRadius: '0.75rem',
     border: '1px solid #ffffff25'
   },
 }));
@@ -61,7 +60,6 @@ const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
 function App() {
   const [isAuthorized, setIsAuthorized] = useState(!!localStorage.getItem('token'));
   const [userData, setUserData] = useState({});
-  const { enqueueSnackbar } = useSnackbar();
 
   const { isLoading } = useQuery(['userdata'], () => Requests.getUserData(), {
     enabled: isAuthorized,
@@ -70,7 +68,9 @@ function App() {
       setUserData(data?.data);
     },
     onError: (e) => {
-      enqueueSnackbar('Ошибка авторизации: ' + e, { variant: 'error' });
+      console.error('Ошибка авторизации: ' + e, { variant: 'error' });
+      setIsAuthorized(false);
+      localStorage.removeItem('token');
     }
   });
 
@@ -97,7 +97,7 @@ function App() {
             achievement: AchievementSnackbar,
           }}
         >
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '25px', minHeight: 'calc(100vh / var(--zoom));', color: 'white' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', minHeight: '100vh', color: 'white' }}>
             <Router>
               <ScrollToTop />
               <Header/>

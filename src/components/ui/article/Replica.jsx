@@ -5,16 +5,16 @@ export default function Replica({ image, text, isRight, align, height }) {
   return (
     <Box
       display='flex' flexDirection={isRight ? 'row-reverse' : 'row'}
-      gap='20px' alignItems={align} width='100%' my='20px'
+      gap='1.25rem' alignItems={align} width='100%' my='1.25rem'
     >
-      <img src={image} alt='Cat' height={height || '100px'}/>
+      <img src={image} alt='Cat' style={{height: height || '6.25rem'}}/>
       <Box
         display='flex' flexDirection='row' border='3px solid rgba(255, 255, 255, 5%)'
-        gap='20px' alignItems='flex-end' bgcolor='#243541' color='#9BC4CF'
-        maxWidth='100%' padding={isRight ? '15px 25px 19px 20px' : '15px 20px 19px 25px'}
-        borderRadius={isRight ? '20px 20px 5px 20px' : '20px 20px 20px 5px'}
+        gap='1.25rem' alignItems='flex-end' bgcolor='#243541' color='#9BC4CF'
+        maxWidth='100%' padding={isRight ? '0.94rem 1.563rem 1.2rem 1.25rem' : '0.94rem 1.25rem 1.2rem 1.563rem'}
+        borderRadius={isRight ? '1.25rem 1.25rem 0.3rem 1.25rem' : '1.25rem 1.25rem 1.25rem 0.3rem'}
       >
-        <Typography fontSize='14px' fontWeight={575} width='100%' textAlign={isRight ? 'end' : 'left'}>{text}</Typography>
+        <Typography fontSize='0.875rem' fontWeight={575} width='100%' textAlign={isRight ? 'end' : 'left'}>{text}</Typography>
       </Box>
     </Box>
   );

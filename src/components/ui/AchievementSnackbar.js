@@ -7,16 +7,17 @@ import alert_sound from '../../sounds/alert.mp3';
 const snackbarStyles = {
     backgroundColor: 'var(--second-color)',
     color: '#fff',
-    height: '97px',
+    height: '6rem',
     alignItems: 'center',
-    width: '330px',
-    borderRadius: '12px',
+    width: '20.625rem',
+    borderRadius: '0.75rem',
     border: '1px solid #ffffff25',
     display: 'flex',
     flexDirection: 'row',
-    padding: '15px 20px',
-    gap: '17px',
+    padding: '1rem 1.25rem',
+    gap: '1rem',
     boxShadow: '0 0 15px #0000001c',
+    marginLeft: '60px'
 };
 
 export const addAchievement = ({name, enqueueSnackbar, queryClient, timeout}) => {
@@ -43,10 +44,10 @@ export const AchievementSnackbar = React.forwardRef(({ style, name }, ref) => {
     return (
         <div style={style} ref={ref}>
             <Box sx={snackbarStyles}>
-                <img src={achievementsData[name].icon} alt={achievementsData[name].title} width={70}/>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-                    <Typography fontWeight={700} fontSize='16px'>{achievementsData[name].title}</Typography>
-                    <Typography fontWeight={300} fontSize='12px' sx={{ letterSpacing: '0.01rem' }}>
+                <img src={achievementsData[name].icon} alt={achievementsData[name].title} style={{width: '4.375rem'}}/>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '0.18rem' }}>
+                    <Typography fontWeight={700} fontSize='1rem'>{achievementsData[name].title}</Typography>
+                    <Typography fontWeight={300} fontSize='0.75rem' sx={{ letterSpacing: '0.01rem' }}>
                         {achievementsData[name].description}
                     </Typography>
                 </Box>

@@ -15,7 +15,7 @@ import CodeBlock from './CodeBlock';
 
 export const chapterData = [
     {
-        chapter: 'Интерфейс командной строки Linux',
+        chapter: 'Интерфейс командной строки',
         content: [
             {
                 component: Title,
@@ -366,7 +366,7 @@ export const chapterData = [
             },
             {
                 component: Title,
-                text: 'Смена текущего рабочего каталога',
+                text: 'Смена каталога',
             },
             {
                 component: Paragraph,
@@ -552,7 +552,7 @@ export const chapterData = [
                 text: 'Ты делаешь большие успехи, так держать! В следующем уроке мы используем эти знания в процессе исследования системы, чтобы стать еще сильнее!',
                 isRight: false,
                 align: 'flex-start',
-                height: '150px'
+                height: '9.375rem'
             },
         ],
     },
@@ -736,7 +736,7 @@ export const chapterData = [
             },
             {
                 component: Title,
-                text: 'Просмотр содержимого файлов',
+                text: 'Просмотр содержимого',
             },
             {
                 component: Paragraph,
@@ -1216,7 +1216,7 @@ export const chapterData = [
                 text: 'Так держать! Ты отлично справился с последним разделом в этом модуле и теперь знаешь множество возможностей командной строки Linux. На самом деле, это лишь малая часть того, на что способна система. Не останавливайся на достигнутом и продолжай учиться! В следующем модуле мы подробно рассмотрим более продвинутые темы, так что будь готов к новым вызовам. Я уверен, что ты справишься с ними на отлично!',
                 isRight: false,
                 align: 'flex-end',
-                height: '150px'
+                height: '9.375rem'
             },
             {
                 component: Paragraph,

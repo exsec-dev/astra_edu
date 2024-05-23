@@ -39,12 +39,12 @@ export default function ReviewBlock() {
 
   return (
     <Box
-      bgcolor='#2B2E3B' border='rgba(255, 255, 255, 5%) 2px solid' borderRadius='10px'
-      display='flex' padding='15px 25px' my='15px' flexDirection='column'
+      bgcolor='#2B2E3B' border='rgba(255, 255, 255, 5%) 2px solid' borderRadius='0.625rem'
+      display='flex' padding='0.94rem 1.56rem' my='0.94rem' flexDirection='column'
     >
       {canSend ?
         <>
-          <Typography fontSize='16px' fontWeight={700} width='100%' color='rgba(255, 255, 255, 50%)'>
+          <Typography fontSize='1rem' fontWeight={700} width='100%' color='rgba(255, 255, 255, 50%)'>
             Форма обратной связи
           </Typography>
           <Formik
@@ -58,16 +58,16 @@ export default function ReviewBlock() {
           >
               {({ isSubmitting, submitForm }) => (
                 <Form>
-                  <DialogContent sx={{ padding: 0, mt: '16px' }}>
+                  <DialogContent sx={{ padding: 0, mt: '1rem' }}>
                     <FormTextFieldMultiline label="" name="review" />
                   </DialogContent>
                   <DialogActions sx={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end', px: 0, mt: 1}}>
                     <FilledGreyButton 
                       label={"Отправить"}
                       handleClick={submitForm}
-                      fontSize="13px"
-                      padding="10px 50px"
-                      height="37px"
+                      fontSize="0.8rem"
+                      padding="0.625rem 3.125rem"
+                      height="2.3rem"
                       bgcolor="#303442"
                       borderColor="#ffffff15"
                       borderWidth="2px"
@@ -79,7 +79,7 @@ export default function ReviewBlock() {
           </Formik>
         </>
         :
-        <Typography fontSize='16px' fontWeight={700} width='100%' color='rgba(255, 255, 255, 50%)'>
+        <Typography fontSize='1rem' fontWeight={700} width='100%' color='rgba(255, 255, 255, 50%)'>
           Спасибо за ваш отзыв!
         </Typography>
       }

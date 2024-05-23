@@ -13,14 +13,14 @@ import { addAchievement } from '../../AchievementSnackbar';
 
 const formStyle = {
     backgroundColor: 'var(--main-color)',
-    padding: '30px 35px',
+    padding: '1.875rem 2.19rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     color: '#fff',
-    width: '500px',
-    gap: '20px',
-    borderRadius: '20px',
+    width: '31.25rem',
+    gap: '1.25rem',
+    borderRadius: '1.25rem',
     border: '1px solid rgba(255, 255, 255, 5%)',
 };
 
@@ -64,8 +64,8 @@ export default function CoinsModal({open, coins, handleClose}) {
                     onClick={handleClose}
                     sx={{
                         position: 'absolute',
-                        right: '10px',
-                        top: '10px',
+                        right: '0.625rem',
+                        top: '0.625rem',
                         color: '#ffffff50'
                     }}
                 >
@@ -73,31 +73,31 @@ export default function CoinsModal({open, coins, handleClose}) {
                 </IconButton>
                 <DialogContent sx={{ padding: '0' }}>
                     <Box sx={{
-                        gap: '20px',
+                        gap: '1.25rem',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center'
                     }}>
-                        <img height={130} width={124} src={coins > 0 ? smile : tongue_cat} alt='Котобот'/>
+                        <img style={{ height: '8.125rem', width: '7.75rem' }} src={coins > 0 ? smile : tongue_cat} alt='Котобот'/>
                         <Box sx={{
-                            gap: '15px',
+                            gap: '0.94rem',
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center'
                         }}>
-                            <Typography fontWeight={750} fontSize='20px' letterSpacing='0.03rem'>
+                            <Typography fontWeight={750} fontSize='1.25rem' letterSpacing='0.03rem'>
                                 {coins > 0 ? "Обмен коинов" : "Недостаточно коинов"}
                             </Typography>
                             <Box sx={{
-                                padding: '15px 10px',
+                                padding: '0.94rem 0.625rem',
                                 display: 'flex',
                                 textAlign: 'center',
                                 bgcolor: 'var(--accent-color)',
                                 border: '1px solid rgba(255, 255, 255, 5%)',
-                                borderRadius: '12px',
+                                borderRadius: '0.75rem',
                             }}>
                                 <Typography
-                                    fontSize='12px'
+                                    fontSize='0.75rem'
                                     letterSpacing='0.03rem'
                                     sx={{ opacity: '0.5' }}
                                     fontWeight={300}
@@ -117,24 +117,24 @@ export default function CoinsModal({open, coins, handleClose}) {
                             justifyContent: 'center',
                             width: '100%',
                             padding: '0',
-                            gap: '2px',
+                            gap: '0.125rem',
                         }}
                     >
                         <FilledGreyButton 
                             label="Обменять 1 коин"
                             handleClick={() => handleSubmit(1)}
-                            fontSize="14px"
-                            padding="10px 20px"
-                            height="40px"
+                            fontSize="0.875rem"
+                            padding="0.625rem 1.25rem"
+                            height="2.5rem"
                             width="100%"
                         />
                         <OutlinedButton 
                             label="Обменять все коины"
                             disabled={coins === 1}
                             handleClick={() => handleSubmit(coins)}
-                            fontSize="14px"
-                            padding="10px 20px"
-                            height="40px"
+                            fontSize="0.875rem"
+                            padding="0.625rem 1.25rem"
+                            height="2.5rem"
                             width="100%"
                         />
                     </DialogActions>

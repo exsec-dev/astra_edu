@@ -18,12 +18,12 @@ const replaceStr = (text) => {
 export default function CodeBlock({ text, canCopy=false }) {
   return (
     <Box
-      bgcolor='#2B2E3B' border='#383B4A 3px solid' borderRadius='10px'
-      display='flex' padding='15px 25px' my='15px' position='relative'
+      bgcolor='#2B2E3B' border='#383B4A 0.18rem solid' borderRadius='0.625rem'
+      display='flex' padding='0.94rem 1.56rem' my='0.94rem' position='relative'
     >
       <Typography
-        fontSize='16px' fontWeight={500} width='100%' color='#85899A' fontFamily='Consolas !important'
-        lineHeight='26px' whiteSpace='pre-wrap' letterSpacing='0.01rem'
+        fontSize='1rem' fontWeight={500} width='100%' color='#85899A' fontFamily='Consolas !important'
+        lineHeight='1.625rem' whiteSpace='pre-wrap' letterSpacing='0.01rem'
       >
         {replaceStr(text)}
       </Typography>
@@ -31,7 +31,7 @@ export default function CodeBlock({ text, canCopy=false }) {
         sx={{
           position: 'absolute', color: '#fff',
           opacity: '0.25', '&:hover': { opacity: '0.5' },
-          right: '12.5px', top: '10px', cursor: 'pointer',
+          right: '0.78rem', top: '0.625rem', cursor: 'pointer',
           transition: 'opacity .1s linear'
         }}
         onClick={() => navigator.clipboard.writeText(text?.replace(/!(.+?)!/g, '')?.split('\n')?.[0] || "")}

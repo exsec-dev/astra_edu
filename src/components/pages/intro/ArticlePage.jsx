@@ -46,24 +46,24 @@ export default function ArticlePage({ id }) {
     }, [id]);
 
     return (
-        <PageWrapper padding='0 240px 0 350px' gap='30px' position='relative'>
+        <PageWrapper padding='0 15rem 0 21.87rem !important' gap='1.875rem' position='relative'>
             <ChapterNavigation moduleName="Введение" chapterId={id}/>
-            <Box sx={{ display: 'flex', gap: '30px', flexDirection: 'column', py: '5px', width: '100%' }}>
+            <Box sx={{ display: 'flex', gap: '1.875rem', flexDirection: 'column', py: '0.3rem', width: '100%' }}>
                 <NavPanel moduleName='Введение' chapterName={articleData?.chapter}/>
                 <Box sx={{
-                    position: 'relative', display: 'flex', gap: '10px', flexDirection: 'column',
-                    px: '40px', pt: '25px', pb: '40px', border: '1px solid rgba(255, 255, 255, 5%)',
-                    borderRadius: '25px', bgcolor: 'var(--main-color)',
+                    position: 'relative', display: 'flex', gap: '0.625rem', flexDirection: 'column',
+                    px: '2.5rem', pt: '1.56rem', pb: '2.5rem', border: '1px solid rgba(255, 255, 255, 5%)',
+                    borderRadius: '1.56rem', bgcolor: 'var(--main-color)',
                 }}>
-                    <Box position='fixed' top='50%' left='225px'>
+                    <Box position='fixed' top='50%' left='14rem'>
                         <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={id === 0}>
                             <MuiLink
                                 component={Link}
                                 to={"/module/intro/?id=" + (id - 1)}
-                                sx={{ color: '#fff', maxHeight: '30px' }}
+                                sx={{ color: '#fff', maxHeight: '1.875rem' }}
                             >
                                 <ArrowBackIosRounded sx={{
-                                    fontSize: '30px',
+                                    fontSize: '1.875rem',
                                     transition: 'opacity linear .1s',
                                     fill: '#fff',
                                     opacity: id === 1 ? '0.25' : '0.08',
@@ -76,15 +76,15 @@ export default function ArticlePage({ id }) {
                         const Component = el?.component;
                         return <Component key={i} {...el}/>;
                     })}
-                    <Box position='fixed' top='50%' right='115px'>
+                    <Box position='fixed' top='50%' right='7.19rem'>
                         <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={id === 1}>
                             <MuiLink
                                 component={Link}
                                 to={"/module/intro/?id=" + (id + 1)}
-                                sx={{ color: '#fff', maxHeight: '30px' }}
+                                sx={{ color: '#fff', maxHeight: '1.875rem' }}
                             >
                                 <ArrowForwardIosRounded sx={{
-                                    fontSize: '30px',
+                                    fontSize: '1.875rem',
                                     transition: 'opacity linear .1s',
                                     fill: '#fff',
                                     opacity: id === 0 ? '0.25' : '0.08',

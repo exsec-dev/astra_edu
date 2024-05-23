@@ -19,8 +19,7 @@ const useVisibleElement = (chapterId) => {
             clearTimeout(timeoutId.current);
             timeoutId.current = setTimeout(() =>
                 setVisibleElementId(elements.current?.findLast((el) => {
-                    const z = getComputedStyle(document.body).getPropertyValue('--zoom');
-                    return (el?.offsetTop + el?.offsetHeight + el?.offsetParent?.offsetTop + el?.offsetParent?.offsetParent?.offsetTop - 170)*z < window.scrollY
+                    return el?.offsetTop + el?.offsetHeight + el?.offsetParent?.offsetTop + el?.offsetParent?.offsetParent?.offsetTop - 170 < window.scrollY
                 })?.id)
             , 100);
         };
@@ -45,8 +44,7 @@ export default function ChapterNavigation({ moduleName, chapterId }) {
 
     const handleClick = (id) => {
         setCurrent(id);
-        const z = getComputedStyle(document.body).getPropertyValue('--zoom');
-        window.scrollTo({ top: (document.getElementById(id)?.getBoundingClientRect()?.top - 100)*z + window.scrollY, behavior: 'smooth' });
+        window.scrollTo({ top: document.getElementById(id)?.getBoundingClientRect()?.top - 100 + window.scrollY, behavior: 'smooth' });
     };
     
     const visibleElementId = useVisibleElement(chapterId);
@@ -60,18 +58,18 @@ export default function ChapterNavigation({ moduleName, chapterId }) {
 
     return (
         <Box
-            position='fixed' left='50px' top='106px' width='290px'
-            display='flex' flexDirection='column' gap='10px' color='rgba(255, 255, 255, 90%)'
+            position='fixed' left='3.125rem' top='6.625rem' width='18.125rem'
+            display='flex' flexDirection='column' gap='0.625rem' color='rgba(255, 255, 255, 90%)'
         >
-            <Typography fontSize='20px' fontWeight={600}>Навигация</Typography>
-            <Box width='210px' bgcolor='rgba(255, 255, 255, 30%)' height='1.5px' my='5px' borderRadius='5px'/>
-            <Box display='flex' flexDirection='column' gap='3px' letterSpacing='0.02rem'>
+            <Typography fontSize='1.25rem' fontWeight={600}>Навигация</Typography>
+            <Box width='13.125rem' bgcolor='rgba(255, 255, 255, 30%)' height='0.09rem' my='0.3rem' borderRadius='0.3rem'/>
+            <Box display='flex' flexDirection='column' gap='0.19rem' letterSpacing='0.02rem'>
                 {
                     currentDataset?.filter(el => el.component === Title)?.map(el => {
                         return (
                             <Typography
                                 key={el?.text} width='fit-content'
-                                fontSize='14px' fontWeight={current === el?.text ? 550 : 300}
+                                fontSize='0.875rem' fontWeight={current === el?.text ? 550 : 300}
                                 sx={{ opacity: current === el?.text ? '1' : '0.5', cursor: 'pointer'}}
                                 onClick={() => handleClick(el?.text)}
                             >
@@ -81,16 +79,16 @@ export default function ChapterNavigation({ moduleName, chapterId }) {
                     })
                 }
             </Box>
-            <Box display={moduleName === "Введение" || chapterId === 4 ? 'none' : 'flex'} flexDirection='column' gap='3px' letterSpacing='0.02rem'>
+            <Box display={moduleName === "Введение" || chapterId === 4 ? 'none' : 'flex'} flexDirection='column' gap='0.188rem' letterSpacing='0.02rem'>
                 <Typography
-                    fontSize='14px' fontWeight={500}
+                    fontSize='0.875rem' fontWeight={500}
                     sx={{ opacity: current === "Тестовые задания" ? '1' : '0.5', cursor: 'pointer'}}
                     onClick={() => handleClick("Тестовые задания")}
                 >
                     Тестовые задания
                 </Typography>
                 <Typography
-                    fontSize='14px' fontWeight={500}
+                    fontSize='0.875rem' fontWeight={500}
                     sx={{ opacity: current === "Итого" ? '1' : '0.5', cursor: 'pointer'}}
                     onClick={() => handleClick("Итого")}
                 >

@@ -10,8 +10,8 @@ import UserPanel from './ui/account/UserPanel';
 
 const headerStyle = {
     backgroundColor: 'var(--main-color)',
-    padding: '14px 45px',
-    height: '75px',
+    padding: '0 2.8rem',
+    height: '4.75rem',
     display: 'flex',
     justifyContent: 'space-between',
     flexDirection: 'row',
@@ -33,9 +33,9 @@ export default function Header() {
 
     return (
         <AppBar position="sticky" sx={{ ...headerStyle }}>
-            <Box sx={{ display: 'flex', gap: '70px', alignItems: 'center', }}>
+            <Box sx={{ display: 'flex', gap: '4.375rem', alignItems: 'center', }}>
                 <Logo />
-                <Stack direction='row' spacing={6}>
+                <Stack direction='row' spacing='3rem'>
                     <MuiLink
                         component={Link}
                         to="/"
@@ -66,7 +66,7 @@ export default function Header() {
                 <UserPanel userData={userData} isLoading={isLoading}/>
             :
                 <>
-                    <OutlinedButton label="Войти" handleClick={() => setOpenModal(true)} icon={<ArrowOutwardRoundedIcon />}/>
+                    <OutlinedButton label="Войти" handleClick={() => setOpenModal(true)} icon={<ArrowOutwardRoundedIcon sx={{ fontSize: '1.25rem !important' }}/>}/>
                     <AuthModal open={openModal} handleClose={() => setOpenModal(false)} isLogin={true}/>
                 </>
             }

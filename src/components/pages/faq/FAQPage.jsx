@@ -73,10 +73,10 @@ export default function FAQPage() {
   return (
     <PageWrapper>
       <Content>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
           <PageTitle value="FAQ"/>
         </Box>
-        <Widget padding='30px 40px' sx={{ flexDirection: 'column', gap: '40px', width: '100%' }}>
+        <Widget padding='1.875rem 2.5rem' sx={{ flexDirection: 'column', gap: '2.5rem', width: '100%' }}>
           {
             faqData?.map(el => <FAQPanel key={el?.title} title={el?.title} data={el?.data}/>)
           }

@@ -12,8 +12,8 @@ const Answer = ({ isAnswered, isCorrect, isChosen, index, text, handleClick, isL
     return (
         <Box
             sx={{
-                display: 'flex', gap: '25px', py: '12px', px: '25px', 
-                borderRadius: '15px', border: '1px solid rgba(255, 255, 255, 5%)',
+                display: 'flex', gap: '1.56rem', py: '0.75rem', px: '1.56rem', 
+                borderRadius: '0.94rem', border: '1px solid rgba(255, 255, 255, 5%)',
                 bgcolor: !isAnswered || !isChosen ? '#2B2E3B' : ( isCorrect ? 'var(--green)' : 'var(--red)'),
                 opacity: isAnswered && !isChosen ? '0.5' : '1',
                 cursor: isAnswered ? 'auto' : 'pointer', alignItems: 'center',
@@ -22,10 +22,10 @@ const Answer = ({ isAnswered, isCorrect, isChosen, index, text, handleClick, isL
             }}
             onClick={isAnswered ? null : () => handleClick(answerMap[index])}
         >
-            <Typography fontSize='22px' fontWeight={500} color='#e9e9ea'>
+            <Typography fontSize='1.375rem' fontWeight={500} color='#e9e9ea'>
                 {answerMap[index]}
             </Typography>
-            <Typography fontSize='16px' fontWeight={500} color='#e9e9ea'>
+            <Typography fontSize='1rem' fontWeight={500} color='#e9e9ea'>
                 {text}
             </Typography>
         </Box>
@@ -94,16 +94,16 @@ export default function TestPanel({ chapterId, tests, retryCount, data, achievem
 
     return (
         <Box sx={{
-            display: 'flex', gap: '10px', flexDirection: 'column',
-            px: '40px', pt: '15px', pb: '25px', border: '1px solid rgba(255, 255, 255, 5%)',
-            borderRadius: '25px', bgcolor: 'var(--main-color)', color: '#DDDDDD'
+            display: 'flex', gap: '0.625rem', flexDirection: 'column',
+            px: '2.5rem', pt: '0.94rem', pb: '1.56rem', border: '1px solid rgba(255, 255, 255, 5%)',
+            borderRadius: '1.56rem', bgcolor: 'var(--main-color)', color: '#DDDDDD'
         }}>
             <Title text="Тестовые задания"/>
-            <Box sx={{ display: 'flex', gap: '15px', flexDirection: 'column', }}>
-                <Typography fontSize='18px' fontWeight={700} color='#e9e9ea' whiteSpace='break-spaces'>{tests?.[current]?.name}</Typography>
-                <Box sx={{ display: 'flex', gap: '8px', flexDirection: 'column', position: 'relative'}}>
+            <Box sx={{ display: 'flex', gap: '0.94rem', flexDirection: 'column', }}>
+                <Typography fontSize='1.125rem' fontWeight={700} color='#e9e9ea' whiteSpace='break-spaces'>{tests?.[current]?.name}</Typography>
+                <Box sx={{ display: 'flex', gap: '0.5rem', flexDirection: 'column', position: 'relative'}}>
                     <ArrowBackIosNewRounded sx={{
-                        position: 'absolute', left: '-30px', top: 'calc(50% - 12px)',
+                        position: 'absolute', left: '-1.875rem', top: 'calc(50% - 0.75rem)',
                         opacity: '0.5', visibility: current === 0 ? 'hidden' : 'visible',
                         cursor: 'pointer', '&:hover': { opacity: '0.75' }, transform: 'scaleY(1.5)'
                     }} onClick={() => setCurrent(current - 1)}/>
@@ -122,29 +122,29 @@ export default function TestPanel({ chapterId, tests, retryCount, data, achievem
                         })
                     }
                     <ArrowForwardIosRounded sx={{
-                        position: 'absolute', right: '-30px', top: 'calc(50% - 12px)',
+                        position: 'absolute', right: '-1.875rem', top: 'calc(50% - 0.75rem)',
                         opacity: '0.5', visibility: current === 4 ? 'hidden' : 'visible',
                         cursor: 'pointer', '&:hover': { opacity: '0.75' }, transform: 'scaleY(1.5)'
                     }} onClick={() => setCurrent(current + 1)}/>
                 </Box>
-                <Box sx={{ display: 'flex', gap: '10px', opacity: retryCount <= 0 || !data?.[current] || data?.[current] === tests?.[current]?.correct ? '0.5' : '1' }}>
+                <Box sx={{ display: 'flex', gap: '0.625rem', opacity: retryCount <= 0 || !data?.[current] || data?.[current] === tests?.[current]?.correct ? '0.5' : '1' }}>
                     <Button
                         disabled={retryCount <= 0 || !data?.[current] || data?.[current] === tests?.[current]?.correct}
                         onClick={handleRetry}
                         sx={{ 
-                            display: 'flex', gap: '5px', alignItems: 'center', textTransform: 'none',
-                            color: '#D0D4DA !important', bgcolor: '#42536C', borderRadius: '25px', padding: '7px 22px 7px 25px',
+                            display: 'flex', gap: '0.31rem', alignItems: 'center', textTransform: 'none',
+                            color: '#D0D4DA !important', bgcolor: '#42536C', borderRadius: '1.56rem', padding: '0.44rem 1.375rem 0.44rem 1.56rem',
                             '&:hover': { bgcolor: '#4D617E' }, fontWeight: '600'
                         }}
                     >
                         Повторить
-                        <RotateLeftRounded sx={{ fill: '#D0D4DA', fontSize: '22px' }}/>
+                        <RotateLeftRounded sx={{ fill: '#D0D4DA', fontSize: '1.375rem' }}/>
                     </Button>
                     <Button
                         disabled
                         sx={{ 
-                            display: 'flex', gap: '5px', alignItems: 'center', textTransform: 'none',
-                            color: '#D0D4DA !important', bgcolor: '#2B2E3B', borderRadius: '25px', padding: '7px 22px',
+                            display: 'flex', gap: '0.31rem', alignItems: 'center', textTransform: 'none',
+                            color: '#D0D4DA !important', bgcolor: '#2B2E3B', borderRadius: '1.56rem', padding: '0.44rem 1.375rem',
                             '&:hover': { bgcolor: '#2B2E3B' }, fontWeight: '600', cursor: 'auto'
                         }}
                     >

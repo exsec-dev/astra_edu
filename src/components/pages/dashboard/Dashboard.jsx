@@ -98,7 +98,6 @@ export default function Dashboard() {
   const modules = modulesData?.filter?.(el => getModuleStatus(el) === 2)?.length || 0;
   const achievements = JSON.parse(userData?.achievements || "[]")?.length || 0;
 
-  console.log(userData)
   return (
     <PageWrapper>
       { isLoading ?
@@ -109,7 +108,7 @@ export default function Dashboard() {
             <FullWidthBanner />
             <Box
               display='flex' flexDirection='row'
-              gap='25px' height='135px' width='100%'
+              gap='1.5rem' height='8.5rem' width='100%'
             >
               <ModuleBanner
                 data={currentModuleData}
@@ -127,7 +126,7 @@ export default function Dashboard() {
             </Box>
             <Box
               display='flex' flexDirection='row'
-              gap='25px' height='135px' width='100%'
+              gap='1.5rem' height='8.5rem' width='100%'
             >
               <MasterpieceBanner value={userData?.points}/>
               <StatBanner
