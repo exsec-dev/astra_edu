@@ -37,7 +37,7 @@ export default function Footer() {
         <AppBar position="sticky" sx={{ ...footerStyle }}>
             <Box display='flex' gap='1.5rem' alignItems='center' flexDirection='row' height='1.75rem'>
                 <Logo opacity='0.3'/>
-                <Typography {...typoStyle}>© 2024  Прожирко Екатерина</Typography>
+                <Typography {...typoStyle}>© 2024  Астра-стипендия</Typography>
             </Box>
             <Box display='flex' gap='1rem' alignItems='center' flexDirection='row' height='1.125rem'>
                 <Link href='https://github.com/exsecantb/astra_edu' target="_blank" rel="noopener" {...typoStyle} sx={linkStyle}>Файлы проекта</Link>

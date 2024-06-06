@@ -99,8 +99,7 @@ export const FormTextField = ({ name, label, onChange, disabled=false, isEdit=fa
         ) : null,
         "password": (
             <IconButton
-                onMouseDown={() => setShowPassword(true)}
-                onMouseUp={() => setShowPassword(false)}
+                onClick={() => setShowPassword(!showPassword)}
                 edge="end"
                 sx={{
                     color: '#EFEFF150',

@@ -14,14 +14,14 @@ export default function ModuleBanner({ data, index, title, status, progress, per
 
     return (
         <Widget
-            padding='1.875rem 3.125rem 2.5rem 3.125rem'
+            padding='1.875rem 2.3rem 2.5rem 3.125rem'
             sx={{
                 justifyContent: 'space-between',
                 flexDirection: 'row', width: '100%',
             }}
         >
             <Box display='flex' flexDirection='column' gap='1.25rem' width='100%'>
-                <Box display='flex' flexDirection='row' gap='1.5rem' alignItems='center'>
+                <Box display='flex' flexDirection='row' gap='0.8rem' alignItems='center'>
                     <Box display='flex' flexDirection='row' gap='0.625rem' pb='0.125rem' alignItems='center'>
                         <Typography fontWeight={800} fontSize='1.563rem'>Текущий модуль</Typography>
                         <EastRounded sx={{ mt: '0.25rem', fontSize: '2.19rem' }}/>
@@ -37,19 +37,19 @@ export default function ModuleBanner({ data, index, title, status, progress, per
                     >
                         <Box
                             display='flex' flexDirection='row' alignItems='center' borderRadius='100px'
-                            gap='0.625rem' padding='0.44rem 2.19rem 0.44rem 1.875rem' bgcolor='var(--widget-color)'
+                            gap='0.625rem' padding='0.5rem 1.8rem 0.5rem 1.475rem' bgcolor='var(--widget-color)'
                             sx={{
                                 cursor: 'pointer', letterSpacing: '0.03rem',
                                 '&:hover': {bgcolor: 'var(--third-color)'},
-                                transition: 'background-color .1s linear', maxHeight: '2.75rem'
+                                transition: 'background-color .1s linear', maxHeight: '2.9rem'
                             }}
                         >
                             <Box height='0.56rem' width='0.56rem' borderRadius='50%' bgcolor={statusMap[status]}/>
-                            <Typography fontWeight={500} fontSize='0.875rem'>{title}</Typography>
+                            <Typography fontWeight={500} fontSize='0.8rem' sx={{ textWrap: 'nowrap' }}>{title}</Typography>
                         </Box>
                     </MuiLink>
                 </Box>
-                <Box position='relative' maxWidth={700}>
+                <Box position='relative'>
                     <Box height='0.56rem' borderRadius='100px' bgcolor='var(--widget-color)'/>
                     <Box
                         height='0.56rem' width='0%' left='0'

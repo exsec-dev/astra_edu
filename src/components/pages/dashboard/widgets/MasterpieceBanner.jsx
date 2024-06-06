@@ -14,7 +14,7 @@ export default function MasterpieceBanner({ value }) {
 
     return (
         <Widget
-            padding='1.125rem 3.125rem 1rem' gap='3rem'
+            padding='1.125rem 2rem 1rem 3.125rem'
             sx={{
                 justifyContent: 'flex-start',
                 flexDirection: 'row',
@@ -41,7 +41,7 @@ export default function MasterpieceBanner({ value }) {
                     </Box>
                 </Box>
             </Box>
-            <img src={like} alt='Котобот' style={{width: '5.375rem', height: '5.625rem'}}/>
+            <img src={like} alt='Котобот' style={{width: '5.375rem', height: '5.625rem', marginLeft: '2rem'}}/>
         </Widget>
     );
 }

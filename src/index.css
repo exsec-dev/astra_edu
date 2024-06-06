@@ -18,6 +18,10 @@
     --progress: #EED449;
 }
 
+@font-face {
+    font-family: "Consolas";
+    src: url("/src/fonts/Consolas.woff") format("woff-variations");
+}
 
 @media only screen and (max-width: 600px) {
     html {
@@ -26,7 +30,25 @@
     }
 
     #main-container {
-        padding: 0 3%;
+        padding: 0 2%;
+    }
+
+    #chapter-container {
+        padding: 0 2rem 0 21.875rem !important;
+    }
+
+    #arrow-left {
+        left: 14rem;
+    }
+    #arrow-right {
+        right: 7.19rem;
+    }
+
+    #arrow-left-chapter {
+        left: 14rem;
+    }
+    #arrow-right-chapter {
+        right: 1rem;
     }
 }
 
@@ -37,7 +59,25 @@
     }
 
     #main-container {
-        padding: 0 3%;
+        padding: 0 4%;
+    }
+    
+    #chapter-container {
+        padding: 0 4rem 0 19rem !important;
+    }
+    
+    #arrow-left {
+        left: 15.5rem;
+    }
+    #arrow-right {
+        right: 0.5rem;
+    }
+    
+    #arrow-left-chapter {
+        left: 15.5rem;
+    }
+    #arrow-right-chapter {
+        right: 0.5rem;
     }
 }
 
@@ -48,7 +88,25 @@
     }
 
     #main-container {
-        padding: 0 8%;
+        padding: 0 6%;
+    }
+
+    #chapter-container {
+        padding: 0 4rem 0 19rem !important;
+    }
+    
+    #arrow-left {
+        left: 15.5rem;
+    }
+    #arrow-right {
+        right: 0.5rem;
+    }
+    
+    #arrow-left-chapter {
+        left: 15.5rem;
+    }
+    #arrow-right-chapter {
+        right: 0.5rem;
     }
 }
 
@@ -59,7 +117,25 @@
     }
     
     #main-container {
-        padding: 0 12%;
+        padding: 0 8%;
+    }
+    
+    #chapter-container {
+        padding: 0 4rem 0 19rem !important;
+    }
+    
+    #arrow-left {
+        left: 15.5rem;
+    }
+    #arrow-right {
+        right: 0.5rem;
+    }
+    
+    #arrow-left-chapter {
+        left: 15.5rem;
+    }
+    #arrow-right-chapter {
+        right: 0.5rem;
     }
 }
 
@@ -70,7 +146,25 @@
     }
 
     #main-container {
-        padding: 0 13%;
+        padding: 0 12%;
+    }
+    
+    #chapter-container {
+        padding: 0 15rem 0 21.875rem !important;
+    }
+    
+    #arrow-left {
+        left: 14rem;
+    }
+    #arrow-right {
+        right: 7.19rem;
+    }
+    
+    #arrow-left-chapter {
+        left: 15.625rem;
+    }
+    #arrow-right-chapter {
+        right: 8.75rem;
     }
 }
 
@@ -82,6 +176,24 @@
 
     #main-container {
         padding: 0 15%;
+    }
+    
+    #chapter-container {
+        padding: 0 15rem 0 21.875rem !important;
+    }
+    
+    #arrow-left {
+        left: 14rem;
+    }
+    #arrow-right {
+        right: 7.19rem;
+    }
+    
+    #arrow-left-chapter {
+        left: 15.625rem;
+    }
+    #arrow-right-chapter {
+        right: 8.75rem;
     }
 }
 
@@ -107,6 +219,7 @@
 
 html {
     background-color: var(--bg-color);
+    overflow-x: hidden;
 }
 
 @-moz-document url-prefix() {

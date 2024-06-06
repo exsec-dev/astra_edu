@@ -22,7 +22,7 @@ export default function CodeBlock({ text, canCopy=false }) {
       display='flex' padding='0.94rem 1.56rem' my='0.94rem' position='relative'
     >
       <Typography
-        fontSize='1rem' fontWeight={500} width='100%' color='#85899A' fontFamily='Consolas !important'
+        fontSize='1rem' fontWeight={500} width='100%' color='#85899A' fontFamily='"Source Code Pro", monospace !important'
         lineHeight='1.625rem' whiteSpace='pre-wrap' letterSpacing='0.01rem'
       >
         {replaceStr(text)}

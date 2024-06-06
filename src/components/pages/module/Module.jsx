@@ -105,7 +105,7 @@ export default function Module({ id, status, isAuthorized }) {
             to={id === 0 ? "/module?name=Введение" : (id === 1 ? "/module?name=Командная%20строка" : null)}
             sx={{
                 color: '#fff', textDecoration: 'none', pointerEvents: id > 1 || status === 0 ? 'none' : 'auto',
-                minWidth: '19rem', maxWidth: '25rem', minHeight: '20.625rem', flex: '1', position: 'relative',
+                width: '20.5rem', minHeight: '20.625rem', position: 'relative',
                 flexDirection: 'column', borderRadius: '1.5rem', display: 'flex', visibility: id !== 8 ? 'initial' : 'hidden',
                 background: 'linear-gradient(180deg, rgba(46, 48, 67, 0) 0%, rgba(181, 215, 243, 0.2) 200%)',
                 backgroundColor: '#2F3245', border: 'solid #ffffff15 1px',
@@ -128,7 +128,7 @@ export default function Module({ id, status, isAuthorized }) {
                     </Box>
                 </Box>
                 <div style={{ display: 'flex', height: '0.1rem', width: '100%', opacity: '0.1', backgroundColor: '#fff', borderRadius: '1px' }}/>
-                <Typography width='100%' fontSize='0.656rem' fontWeight={200} sx={{ opacity: '0.5' }} letterSpacing='0.03rem'>{moduleMap[id].text}</Typography>
+                <Typography width='100%' fontSize='0.656rem' fontWeight={300} sx={{ opacity: '0.5' }} letterSpacing='0.03rem'>{moduleMap[id].text}</Typography>
             </Box>
             {
                 id > 1 &&

@@ -97,7 +97,7 @@ function App() {
             achievement: AchievementSnackbar,
           }}
         >
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', minHeight: '100vh', color: 'white' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', minHeight: '100vh', color: 'white', width: '100%' }}>
             <Router>
               <ScrollToTop />
               <Header/>

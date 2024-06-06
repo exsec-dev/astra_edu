@@ -58,7 +58,9 @@ export default function ModulesPage() {
           <PageTitle value="Модули"/>
           <PageText value="Здесь вы найдете список всех разделов обучения. Каждый модуль представляет собой глубокое погружение в отдельную тему, покрывающую широкий спектр знаний, необходимых для понимания и работы с Astra Linux. Вы можете посмотреть, какой материал еще предстоит изучить, или повторить уже пройденное." />
         </Box>
-        <ModuleFilters handleFilterChange={setCurrentFilter} currentFilter={currentFilter} disabled={!isAuthorized}/>
+        {
+          isAuthorized && <ModuleFilters handleFilterChange={setCurrentFilter} currentFilter={currentFilter}/>
+        }
         <Grid container sx={{ flexWrap: 'wrap', gap: '0.875rem 1.25rem', paddingTop: '0.375rem' }}>
           { 
             modules?.length ?

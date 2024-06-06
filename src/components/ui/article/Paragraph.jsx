@@ -5,8 +5,8 @@ import { Typography } from '@mui/material';
 export const CodeSpan = ({ children }) => {
   return (
     <Typography
-      color='#868D9A' fontFamily='Consolas !important' height='1.56rem' px='0.3rem' mx='0.19rem'
-      bgcolor='#282A36' display='inline-block' borderRadius='0.31rem'
+      color='#868D9A' fontFamily='"Source Code Pro", monospace !important' height='1.56rem' px='0.3rem' mx='0.19rem'
+      bgcolor='#282A36' display='inline-block' borderRadius='0.31rem' fontWeight={500}
     >
       {children}
     </Typography>

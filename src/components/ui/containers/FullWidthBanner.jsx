@@ -28,7 +28,7 @@ export default function FullWidthBanner({ isWelcome=false }) {
 
     return (
         <Box sx={bannerStyle}>
-            <Box sx={{ display: 'flex', gap: '1.5rem', flexDirection: 'column' }}>
+            <Box sx={{ display: 'flex', gap: '1.5rem', flexDirection: 'column', width: '100%' }}>
                 <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-around' }}>
                     <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column', gap: '0.625rem', }}>
                         <Typography sx={{ fontSize: '1.5rem', fontWeight: '800', fontFamily: '"Manrope", sans-serif !important' }}>
@@ -46,8 +46,8 @@ export default function FullWidthBanner({ isWelcome=false }) {
                     </Box>
                 }
             </Box>
-            <Box sx={{ height: '8.75rem', display: 'flex' }}>
-                <img src={hello} alt="Robocat" sx={{width: '12.25rem', height: '8.75rem'}}/>
+            <Box sx={{ display: 'flex' }}>
+                <img src={hello} alt="Robocat" style={{width: '12.25rem', height: '8.75rem'}}/>
             </Box>
             <AuthModal open={openModal} handleClose={() => setOpenModal(false)} isLogin={isLogin}/>
         </Box>

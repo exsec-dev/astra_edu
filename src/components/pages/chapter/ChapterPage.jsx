@@ -33,7 +33,7 @@ export default function ChapterPage({ id }) {
     });
 
     return (
-        <PageWrapper padding='0 15rem 0 21.875rem !important' gap='1.875rem' position='relative'>
+        <PageWrapper id='chapter-container' gap='1.875rem' position='relative'>
             <ChapterNavigation moduleName="Командная строка" chapterId={id}/>
             <Box sx={{ display: 'flex', gap: '1.875rem', flexDirection: 'column', py: '0.3rem', width: '100%' }}>
                 <NavPanel moduleName="Командная строка" chapterName={articleData?.chapter}/>
@@ -42,7 +42,7 @@ export default function ChapterPage({ id }) {
                     px: '2.5rem', pt: '0.94rem', pb: '1.25rem', border: '1px solid rgba(255, 255, 255, 5%)',
                     borderRadius: '1.56rem', bgcolor: 'var(--main-color)'
                 }}>
-                    <Box position='fixed' top='50%' left='15.625rem'>
+                    <Box position='fixed' top='calc(50% + 1.3rem)' id='arrow-left-chapter'>
                         <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={id === 0}>
                             <MuiLink
                                 component={Link}
@@ -63,7 +63,7 @@ export default function ChapterPage({ id }) {
                         const Component = el?.component;
                         return <Component key={i} {...el}/>;
                     })}
-                    <Box position='fixed' top='50%' right='8.75rem'>
+                    <Box position='fixed' top='calc(50% + 1.3rem)' id='arrow-right-chapter'>
                         <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={id === 4 || JSON.parse(userData?.command_line || "{}")?.[id + 1]?.status === 0}>
                             <MuiLink
                                 component={Link}

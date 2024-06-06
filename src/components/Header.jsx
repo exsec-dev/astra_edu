@@ -32,7 +32,7 @@ export default function Header() {
     const [openModal, setOpenModal] = useState(false);
 
     return (
-        <AppBar position="sticky" sx={{ ...headerStyle }}>
+        <AppBar position="fixed" sx={{ ...headerStyle }}>
             <Box sx={{ display: 'flex', gap: '4.375rem', alignItems: 'center', }}>
                 <Logo />
                 <Stack direction='row' spacing='3rem'>

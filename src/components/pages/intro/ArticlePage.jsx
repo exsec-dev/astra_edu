@@ -46,7 +46,7 @@ export default function ArticlePage({ id }) {
     }, [id]);
 
     return (
-        <PageWrapper padding='0 15rem 0 21.87rem !important' gap='1.875rem' position='relative'>
+        <PageWrapper id='chapter-container' gap='1.875rem' position='relative'>
             <ChapterNavigation moduleName="Введение" chapterId={id}/>
             <Box sx={{ display: 'flex', gap: '1.875rem', flexDirection: 'column', py: '0.3rem', width: '100%' }}>
                 <NavPanel moduleName='Введение' chapterName={articleData?.chapter}/>
@@ -55,7 +55,7 @@ export default function ArticlePage({ id }) {
                     px: '2.5rem', pt: '1.56rem', pb: '2.5rem', border: '1px solid rgba(255, 255, 255, 5%)',
                     borderRadius: '1.56rem', bgcolor: 'var(--main-color)',
                 }}>
-                    <Box position='fixed' top='50%' left='14rem'>
+                    <Box position='fixed' top='calc(50% + 1.3rem)' id='arrow-left'>
                         <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={id === 0}>
                             <MuiLink
                                 component={Link}
@@ -76,7 +76,7 @@ export default function ArticlePage({ id }) {
                         const Component = el?.component;
                         return <Component key={i} {...el}/>;
                     })}
-                    <Box position='fixed' top='50%' right='7.19rem'>
+                    <Box position='fixed' top='calc(50% + 1.3rem)' id='arrow-right'>
                         <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={id === 1}>
                             <MuiLink
                                 component={Link}
