@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const AxiosInstance = axios.create({
-    baseURL: 'https://exsec-projects.store',
+    baseURL: 'https://api.astraedu.ru',
     headers: {
         'Content-Type': 'application/json',
     }
