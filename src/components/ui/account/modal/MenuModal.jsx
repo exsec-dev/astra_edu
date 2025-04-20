@@ -70,7 +70,7 @@ export default function MenuModal({anchorEl, anchorRight, handleClose, handleOpe
                         Достижения
                     </Typography>
                 </MenuItem>
-                <MenuItem onClick={() => { handleClose(); setIsAuthorized(false); localStorage.removeItem('token'); queryClient.removeQueries();  window.location.replace('/');}} sx={menuItemStyle}>
+                <MenuItem onClick={() => { handleClose(); setIsAuthorized(false); localStorage.removeItem('token'); queryClient.removeQueries();  window.location.replace('/astraedu');}} sx={menuItemStyle}>
                     <LeaveIcon sx={{ fill: '#EE6049', width: '1.25rem' }}/>
                     <Typography fontWeight={700} fontSize='0.94rem' letterSpacing='0.03rem' color='#EE6049'>
                         Выйти

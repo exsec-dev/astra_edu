@@ -64,7 +64,7 @@ const User = ({ isFirst, isSecond, isThird, isCurrent, isAbove, isLast, index, u
                         {levelMap.findLast(el => el.points <= userData?.points)?.level}
                     </Typography>
                     <Typography fontWeight={400} fontSize='0.875rem' width='7.5rem' letterSpacing='0.03rem' textAlign='end'>
-                        {JSON.parse(userData?.achievements || "[]")?.length}
+                        {userData?.achievements?.length}
                     </Typography>
                 </Box>
             </Box>
@@ -81,7 +81,7 @@ export default function Leaderboard({ userData }) {
         onSuccess: (data) => {
             const currentPosition = data?.data?.findIndex(el => el?.username === userData?.username);
             const map = ["gold", "silver", "bronze"];
-            if ([0, 1, 2]?.includes(currentPosition) && !JSON.parse(userData?.achievements)?.includes(map?.[currentPosition])) {
+            if ([0, 1, 2]?.includes(currentPosition) && !userData?.achievements?.includes(map?.[currentPosition])) {
                 addAchievement({name: map?.[currentPosition], enqueueSnackbar, queryClient, timeout: 3000});
             }
         },

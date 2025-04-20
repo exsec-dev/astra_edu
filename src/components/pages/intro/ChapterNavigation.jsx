@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, Typography } from '@mui/material';
 import { introData } from '../../ui/article/introData';
-import { chapterData } from '../../ui/article/chapterData';
+import { commandlineData, filesystemData } from '../../ui/article/chapterData';
 import Title from '../../ui/article/Title';
 
 const useVisibleElement = (chapterId) => {
@@ -39,7 +39,9 @@ const useVisibleElement = (chapterId) => {
 
 
 export default function ChapterNavigation({ moduleName, chapterId }) {
-    const currentDataset = moduleName === "Введение" ? introData?.[chapterId]?.content : chapterData?.[chapterId]?.content;
+    const currentDataset = moduleName === "Введение" ? introData?.[chapterId]?.content : (
+        moduleName === "Командная строка" ? commandlineData?.[chapterId]?.content : filesystemData?.[chapterId]?.content
+    );
     const [current, setCurrent] = useState(currentDataset?.find(el => el.component === Title)?.text);
 
     const handleClick = (id) => {
@@ -61,7 +63,7 @@ export default function ChapterNavigation({ moduleName, chapterId }) {
             position='fixed' left='3.125rem' top='6.625rem' width='18.125rem'
             display='flex' flexDirection='column' gap='0.625rem' color='rgba(255, 255, 255, 90%)'
         >
-            <Typography fontSize='1.25rem' fontWeight={600}>Навигация</Typography>
+            <Typography fontSize='1.25rem' fontWeight={600}>Содержание</Typography>
             <Box width='13.125rem' bgcolor='rgba(255, 255, 255, 30%)' height='0.09rem' my='0.3rem' borderRadius='0.3rem'/>
             <Box display='flex' flexDirection='column' gap='0.19rem' letterSpacing='0.02rem'>
                 {

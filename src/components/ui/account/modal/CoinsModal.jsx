@@ -34,7 +34,7 @@ export default function CoinsModal({open, coins, handleClose}) {
             enqueueSnackbar('Дополнительный опыт начислен', { variant: 'success' });
             queryClient.invalidateQueries(['userdata']);
             queryClient.invalidateQueries(['leaderboard']);
-            if (!JSON.parse(userData?.achievements)?.includes("magic")) {
+            if (!userData?.achievements?.includes("magic")) {
                 addAchievement({name: "magic", enqueueSnackbar, queryClient, timeout: 3000});
             }
         },

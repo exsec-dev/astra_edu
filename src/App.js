@@ -83,46 +83,41 @@ function App() {
 
   return (<ThemeProvider theme={THEME}>
     <UserContext.Provider
-        value={{ userData, isLoading, isAuthorized, setIsAuthorized }}>
-        <SnackbarProvider
-          maxSnack={3}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-          }}
-          Components={{
-            success: StyledMaterialDesignContent,
-            error: StyledMaterialDesignContent,
-            default: StyledMaterialDesignContent,
-            achievement: AchievementSnackbar,
-          }}
-        >
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', minHeight: '100vh', color: 'white', width: '100%' }}>
-            <Router>
-              <ScrollToTop />
-              <Header/>
-              <AnimatePresence mode="wait">
-                <Routes>
-                  <Route path="/" element={isAuthorized ? <Dashboard /> : <WelcomePage />} />
-                  <Route path="/module" element={isAuthorized ? <ChaptersPage />: <WelcomePage />} />
-                  <Route path="/module/intro" element={isAuthorized ? <IntroRouter />: <WelcomePage />} />
-                  <Route path="/module/commandline" element={isAuthorized ? <ChapterRouter />: <WelcomePage />} />
-                  <Route path="/modules" element={<ModulesPage />} />
-                  <Route path="/books" element={<Books />} />
-                  <Route path="/faq" element={<FAQPage />} />
-                </Routes>
-              </AnimatePresence>
-              <Footer />
-            </Router>
-          </Box>
-        </SnackbarProvider>
+      value={{ userData, isLoading, isAuthorized, setIsAuthorized }}>
+      <SnackbarProvider
+        maxSnack={3}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        Components={{
+          success: StyledMaterialDesignContent,
+          error: StyledMaterialDesignContent,
+          default: StyledMaterialDesignContent,
+          achievement: AchievementSnackbar,
+        }}
+      >
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', minHeight: '100vh', color: 'white', width: '100%' }}>
+          <Router basename='/astraedu'>
+            <ScrollToTop />
+            <Header />
+            <AnimatePresence mode="wait">
+              <Routes>
+                <Route path="/" element={isAuthorized ? <Dashboard /> : <WelcomePage />} />
+                <Route path="/module" element={isAuthorized ? <ChaptersPage /> : <WelcomePage />} />
+                <Route path="/module/intro" element={isAuthorized ? <IntroRouter /> : <WelcomePage />} />
+                <Route path="/module/commandline" element={isAuthorized ? <ChapterRouter /> : <WelcomePage />} />
+                <Route path="/module/filesystem" element={isAuthorized ? <ChapterRouter /> : <WelcomePage />} />
+                <Route path="/modules" element={<ModulesPage />} />
+                <Route path="/faq" element={<FAQPage />} />
+              </Routes>
+            </AnimatePresence>
+            <Footer />
+          </Router>
+        </Box>
+      </SnackbarProvider>
     </UserContext.Provider>
   </ThemeProvider>);
 }
 
 export default App;
-
-
-const Books = () => {
-  return <div>Books Page</div>;
-};

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, CircularProgress, Fade } from '@mui/material';
 import { useMutation, useQueryClient } from 'react-query';
 import { addAchievement } from '../../ui/AchievementSnackbar';
 import { useSnackbar } from 'notistack';
@@ -32,7 +32,7 @@ const Answer = ({ isAnswered, isCorrect, isChosen, index, text, handleClick, isL
     );
 }
 
-export default function TestPanel({ chapterId, tests, retryCount, data, achievements }) {
+export default function TestPanel({ chapterId, module, tests, retryCount, data, achievements }) {
     const [current, setCurrent] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -84,12 +84,12 @@ export default function TestPanel({ chapterId, tests, retryCount, data, achievem
     const handleSubmit = (answer, isCorrect) => {
         if (!isLoading) {
             setIsLoading(true);
-            return setAnswer.mutate({ answer, question: current, module: "Командная строка", chapter: chapterId, is_correct: isCorrect });
+            return setAnswer.mutate({ answer, question: current, module: module === "command_line" ? "Командная строка" : "Файловая система", chapter: chapterId, is_correct: isCorrect });
         }
     };
 
     const handleRetry = () => {
-        return setRetry.mutate({ question: current, module: "Командная строка", chapter: chapterId });
+        return setRetry.mutate({ question: current, module: module === "command_line" ? "Командная строка" : "Файловая система", chapter: chapterId });
     };
 
     return (
@@ -127,29 +127,40 @@ export default function TestPanel({ chapterId, tests, retryCount, data, achievem
                         cursor: 'pointer', '&:hover': { opacity: '0.75' }, transform: 'scaleY(1.5)'
                     }} onClick={() => setCurrent(current + 1)}/>
                 </Box>
-                <Box sx={{ display: 'flex', gap: '0.625rem', opacity: retryCount <= 0 || !data?.[current] || data?.[current] === tests?.[current]?.correct ? '0.5' : '1' }}>
-                    <Button
-                        disabled={retryCount <= 0 || !data?.[current] || data?.[current] === tests?.[current]?.correct}
-                        onClick={handleRetry}
-                        sx={{ 
-                            display: 'flex', gap: '0.31rem', alignItems: 'center', textTransform: 'none',
-                            color: '#D0D4DA !important', bgcolor: '#42536C', borderRadius: '1.56rem', padding: '0.44rem 1.375rem 0.44rem 1.56rem',
-                            '&:hover': { bgcolor: '#4D617E' }, fontWeight: '600'
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', opacity: retryCount <= 0 || !data?.[current] || data?.[current] === tests?.[current]?.correct ? '0.5' : '1' }}>
+                    <Box sx={{ display: 'flex', gap: '0.625rem'}}>
+                        <Button
+                            disabled={retryCount <= 0 || !data?.[current] || data?.[current] === tests?.[current]?.correct}
+                            onClick={handleRetry}
+                            sx={{ 
+                                display: 'flex', gap: '0.31rem', alignItems: 'center', textTransform: 'none',
+                                color: '#D0D4DA !important', bgcolor: '#42536C', borderRadius: '1.56rem', padding: '0.44rem 1.375rem 0.44rem 1.56rem',
+                                '&:hover': { bgcolor: '#4D617E' }, fontWeight: '600'
+                            }}
+                        >
+                            Повторить
+                            <RotateLeftRounded sx={{ fill: '#D0D4DA', fontSize: '1.375rem' }}/>
+                        </Button>
+                        <Button
+                            disabled
+                            sx={{ 
+                                display: 'flex', gap: '0.31rem', alignItems: 'center', textTransform: 'none',
+                                color: '#D0D4DA !important', bgcolor: '#2B2E3B', borderRadius: '1.56rem', padding: '0.44rem 1.375rem',
+                                '&:hover': { bgcolor: '#2B2E3B' }, fontWeight: '600', cursor: 'auto'
+                            }}
+                        >
+                            Осталось попыток: {retryCount}
+                        </Button>
+                    </Box>
+                    <Fade
+                        in={isLoading || setRetry.isLoading}
+                        unmountOnExit
+                        style={{
+                            transitionDelay: isLoading || setRetry.isLoading ? '0ms' : '1000ms',
                         }}
                     >
-                        Повторить
-                        <RotateLeftRounded sx={{ fill: '#D0D4DA', fontSize: '1.375rem' }}/>
-                    </Button>
-                    <Button
-                        disabled
-                        sx={{ 
-                            display: 'flex', gap: '0.31rem', alignItems: 'center', textTransform: 'none',
-                            color: '#D0D4DA !important', bgcolor: '#2B2E3B', borderRadius: '1.56rem', padding: '0.44rem 1.375rem',
-                            '&:hover': { bgcolor: '#2B2E3B' }, fontWeight: '600', cursor: 'auto'
-                        }}
-                    >
-                        Осталось попыток: {retryCount}
-                    </Button>
+                        <CircularProgress color="inherit" size="1.8rem" sx={{ alignSelf: 'center' }} />
+                    </Fade>
                 </Box>
             </Box>
         </Box>

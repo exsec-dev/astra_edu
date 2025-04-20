@@ -79,13 +79,14 @@ export const levelMap = [
 export default function Dashboard() {
   const { userData, isLoading } = useContext(UserContext);
   const modulesData = [
-    JSON.parse(userData?.["intro"] || "[]"),
-    JSON.parse(userData?.["command_line"] || "[]"),
+    userData?.["intro"],
+    userData?.["command_line"],
+    userData?.["file_system"],
   ];
 
   const currentModuleData = modulesData?.find(el => getModuleStatus(el) === 1 && el) || {};
   const currentModuleIndex = modulesData?.findIndex(el => getModuleStatus(el) === 1);
-  const currentModuleTitle = moduleMap?.[currentModuleIndex]?.title || moduleMap?.[2]?.title;
+  const currentModuleTitle = moduleMap?.[currentModuleIndex]?.title || moduleMap?.[3]?.title;
   const currentModuleStatus = getModuleStatus(currentModuleData);
   const currentModuleProgress = currentModuleData?.reduce?.((prev, cur) => prev + cur?.progress, 0) || 0;
   const currentModulePercentage = getModulePercentage(currentModuleData, currentModuleData?.length);
@@ -96,7 +97,7 @@ export default function Dashboard() {
   const levelPoints = lvl?.levelPoints;
 
   const modules = modulesData?.filter?.(el => getModuleStatus(el) === 2)?.length || 0;
-  const achievements = JSON.parse(userData?.achievements || "[]")?.length || 0;
+  const achievements = userData?.achievements?.length || 0;
 
   return (
     <PageWrapper>

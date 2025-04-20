@@ -13,7 +13,7 @@ export default function AccountPanel({ userData }) {
     const avatar = convertToImage(userData?.avatar);
     const username = userData?.username;
     const favoriteAchievement = userData?.favorite_achievement;
-    const achievements = JSON.parse(userData?.achievements);
+    const achievements = userData?.achievements;
 
     return (
         <Box sx={{

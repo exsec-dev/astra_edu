@@ -31,16 +31,17 @@ export default function ArticlePage({ id }) {
 
     useEffect(() => {
         window.scrollTo({ top: 0 });
-        const currentChapterStatus = JSON.parse(userData?.intro || "{}")?.[id]?.status;
+        const currentChapterStatus = userData?.intro?.[id]?.status;
         if (currentChapterStatus && currentChapterStatus !== 2) {
             changeStatus.mutate({module: "Введение", id, status: 2});
             if (id === 0) {
                 changeStatus.mutate({module: "Введение", id: 1, status: 1});
             } else if (id === 1) {
                 changeStatus.mutate({module: "Командная строка", id: 0, status: 1});
+                changeStatus.mutate({module: "Файловая система", id: 0, status: 1});
             }
         }
-        if (id === 1 && userData?.achievements && !JSON.parse(userData?.achievements)?.includes?.("beginning")) {
+        if (id === 1 && userData?.achievements && !userData?.achievements?.includes?.("beginning")) {
             addAchievement({name: "beginning", enqueueSnackbar, queryClient, timeout: 3000});
         }
     }, [id]);

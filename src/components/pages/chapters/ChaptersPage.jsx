@@ -10,7 +10,8 @@ import { moduleMap, statusMap } from '../module/Module';
 
 const linkMap = {
   "Введение": "intro",
-  "Командная строка": "commandline"
+  "Командная строка": "commandline",
+  "Файловая система": "filesystem"
 }
 
 const Module = ({ id, isBonus, status, points, title, moduleName }) => {
@@ -55,7 +56,7 @@ const Module = ({ id, isBonus, status, points, title, moduleName }) => {
             fontSize='1.5rem' fontWeight={800}
             sx={{ opacity: status === 2 ? '0.5' : '1', zIndex: 2}}
           >
-            {points || 0}/5
+            {points || 0}/{isBonus ? 0 : 5}
           </Typography>
         </Box>
       </MuiLink>
@@ -69,11 +70,12 @@ export default function ChaptersPage() {
   const name = new URLSearchParams(location.search).get("name");
   const moduleData = moduleMap?.find(el => el?.title === name);
   const moduleDataIndex = moduleMap?.findIndex(el => el?.title === name);
-  !moduleData?.description && window.location.replace('/');
+  !moduleData?.description && window.location.replace('/astraedu');
 
   const map = {
-    "Введение": JSON.parse(userData?.["intro"] || "[]"),
-    "Командная строка": JSON.parse(userData?.["command_line"] || "[]"),
+    "Введение": userData?.["intro"],
+    "Командная строка": userData?.["command_line"],
+    "Файловая система": userData?.["file_system"],
   };
 
   return (
@@ -133,13 +135,13 @@ export default function ChaptersPage() {
               </Box>
             </Box>
             <Box width='15.62rem' height='100%' display='flex' alignItems='center' pl='3.125rem'>
-              <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={moduleDataIndex > 0} /*ограничение по модулям*/ >
+              <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={moduleDataIndex > 1} >
                 <MuiLink
                   component={Link}
                   to={"/module?name=" + moduleMap?.[moduleDataIndex + 1]?.title}
                   sx={{ color: '#fff', maxHeight: '1.875rem' }}
                 >
-                  <ArrowForwardIosRounded sx={{ fontSize: '1.875rem', transition: 'opacity linear .1s', fill: '#fff', opacity: moduleDataIndex > 0 ? '0.08' : '0.25', '&:hover': { opacity: '0.5' }}}/>
+                  <ArrowForwardIosRounded sx={{ fontSize: '1.875rem', transition: 'opacity linear .1s', fill: '#fff', opacity: moduleDataIndex > 1 ? '0.08' : '0.25', '&:hover': { opacity: '0.5' }}}/>
                 </MuiLink>
               </IconButton>
             </Box>

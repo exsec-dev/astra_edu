@@ -81,7 +81,7 @@ export default function SettingsModal({open, userData, handleClose}) {
             enqueueSnackbar("Аватар успешно обновлен", { variant: 'success' });
             queryClient.invalidateQueries(['userdata']);
             queryClient.invalidateQueries(['leaderboard']);
-            if (!JSON.parse(userData?.achievements)?.includes("art")) {
+            if (!userData?.achievements?.includes("art")) {
                 addAchievement({name: "art", enqueueSnackbar, queryClient, timeout: 3000});
             }
         },
@@ -235,7 +235,7 @@ export default function SettingsModal({open, userData, handleClose}) {
                                     />
                                     <OutlinedButton 
                                         label="Выйти из аккаунта"
-                                        handleClick={() => { handleClose(); setIsAuthorized(false); localStorage.removeItem('token'); queryClient.removeQueries(); window.location.replace('/');}}
+                                        handleClick={() => { handleClose(); setIsAuthorized(false); localStorage.removeItem('token'); queryClient.removeQueries(); window.location.replace('/astraedu');}}
                                         fontSize="0.875rem"
                                         fontWeight={650}
                                         padding="0.625rem 0"

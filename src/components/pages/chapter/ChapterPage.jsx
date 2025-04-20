@@ -4,22 +4,23 @@ import { Requests } from '../../../Requests';
 import { useMutation, useQueryClient } from 'react-query';
 import { Link } from 'react-router-dom';
 import PageWrapper from '../../ui/wrappers/PageWrapper';
-import { chapterData } from '../../ui/article/chapterData';
+import { commandlineData, filesystemData } from '../../ui/article/chapterData';
 import { UserContext } from '../../../context';
 import { NavPanel } from '../../ui/article/NavPanel';
 import { ArrowForwardIosRounded, ArrowBackIosRounded } from '@mui/icons-material';
 import ChapterNavigation from '../intro/ChapterNavigation';
 import TestPanel from './TestPanel';
 
-export default function ChapterPage({ id }) {
-    const articleData = chapterData?.[id];
+export default function ChapterPage({ id, module }) {
+    const articleData = module === 'command_line' ? commandlineData?.[id] : filesystemData?.[id];
     const queryClient = useQueryClient();
     const { userData } = useContext(UserContext);
 
     useEffect(() => {
         window.scrollTo({ top: 0 });
-        if (id === 4 && JSON.parse(userData?.command_line || "{}")?.[4]?.status === 1) {
-            changeStatus.mutate({module: "Командная строка", id: 4, status: 2});
+        const isLast = (module === 'command_line' && userData?.command_line?.[4]?.status === 1) || (module === 'file_system' && userData?.file_system?.[4]?.status === 1);
+        if (id === 4 && isLast) {
+            changeStatus.mutate({module: module === 'command_line' ? "Командная строка" : "Файловая система", id: 4, status: 2});
         }
     }, [id]);
 
@@ -34,9 +35,9 @@ export default function ChapterPage({ id }) {
 
     return (
         <PageWrapper id='chapter-container' gap='1.875rem' position='relative'>
-            <ChapterNavigation moduleName="Командная строка" chapterId={id}/>
+            <ChapterNavigation moduleName={module === 'command_line' ? "Командная строка" : "Файловая система"} chapterId={id}/>
             <Box sx={{ display: 'flex', gap: '1.875rem', flexDirection: 'column', py: '0.3rem', width: '100%' }}>
-                <NavPanel moduleName="Командная строка" chapterName={articleData?.chapter}/>
+                <NavPanel moduleName={module === 'command_line' ? "Командная строка" : "Файловая система"} chapterName={articleData?.chapter}/>
                 <Box sx={{
                     position: 'relative', display: 'flex', gap: '0.625rem', flexDirection: 'column',
                     px: '2.5rem', pt: '0.94rem', pb: '1.25rem', border: '1px solid rgba(255, 255, 255, 5%)',
@@ -46,7 +47,7 @@ export default function ChapterPage({ id }) {
                         <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={id === 0}>
                             <MuiLink
                                 component={Link}
-                                to={"/module/commandline/?id=" + (id - 1)}
+                                to={`/module/${module.replace('_', '')}/?id=` + (id - 1)}
                                 sx={{ color: '#fff', maxHeight: '1.875rem' }}
                             >
                                 <ArrowBackIosRounded sx={{
@@ -64,31 +65,32 @@ export default function ChapterPage({ id }) {
                         return <Component key={i} {...el}/>;
                     })}
                     <Box position='fixed' top='calc(50% + 1.3rem)' id='arrow-right-chapter'>
-                        <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={id === 4 || JSON.parse(userData?.command_line || "{}")?.[id + 1]?.status === 0}>
+                        <IconButton sx={{ color: 'rgba(255, 255, 255, 25%)' }} disabled={id === 4 || (module === 'command_line' ? userData?.command_line : userData?.file_system)?.[id + 1]?.status === 0}>
                             <MuiLink
                                 component={Link}
-                                to={"/module/commandline/?id=" + (id + 1)}
+                                to={`/module/${module.replace('_', '')}/?id=` + (id + 1)}
                                 sx={{ color: '#fff', maxHeight: '1.875rem' }}
                             >
                                 <ArrowForwardIosRounded sx={{
                                     fontSize: '1.875rem',
                                     transition: 'opacity linear .1s',
                                     fill: '#fff',
-                                    opacity: id === 4 || JSON.parse(userData?.command_line || "{}")?.[id + 1]?.status === 0 ? '0.08' : '0.25',
+                                    opacity: id === 4 || (module === 'command_line' ? userData?.command_line : userData?.file_system)?.[id + 1]?.status === 0 ? '0.08' : '0.25',
                                     '&:hover': { opacity: '0.5' }}}
                                 />
                             </MuiLink>
                         </IconButton>
                     </Box>
                 </Box>
-                {!JSON.parse(userData?.command_line || "{}")?.[id]?.bonus &&
+                {!(module === 'command_line' ? userData?.command_line : userData?.file_system)?.[id]?.bonus &&
                     <>
                         <TestPanel
                             chapterId={id}
                             tests={articleData?.tests}
-                            data={JSON.parse(userData?.command_line || "{}")?.[id]?.details}
-                            achievements={JSON.parse(userData?.achievements || "[]")}
-                            retryCount={JSON.parse(userData?.command_line || "{}")?.[id]?.retry_count}
+                            module={module}
+                            data={(module === 'command_line' ? userData?.command_line : userData?.file_system)?.[id]?.details}
+                            achievements={userData?.achievements}
+                            retryCount={(module === 'command_line' ? userData?.command_line : userData?.file_system)?.[id]?.retry_count}
                         />
                         <Box sx={{
                             position: 'relative', display: 'flex', gap: '0.625rem', flexDirection: 'column',

@@ -41,8 +41,9 @@ export default function ModulesPage() {
   const { userData, isAuthorized } = useContext(UserContext);
 
   const modulesData = [
-    JSON.parse(userData?.["intro"] || "[]"),
-    JSON.parse(userData?.["command_line"] || "[]"),
+    userData?.["intro"],
+    userData?.["command_line"],
+    userData?.["file_system"],
   ];
 
   const modules = Array.from({length: 9}, (_, i) => i)
